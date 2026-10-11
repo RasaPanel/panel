@@ -1,6 +1,5 @@
 {
-  "rasa.welcome": "خوش آمدی، {{name}}",
-  "pasarguard": "هیرکان",
+  "hirkan": "هیرکان",
   "dashboard": "داشبورد",
   "master": "کلی",
   "dashboardDescription": "داشبورد مدیریت هیرکان",
@@ -1569,7 +1568,7 @@
   "monitorServers": "نظارت بر سرورها و کاربران شما",
   "manageServers": "کنترل جزئیات سرور شما",
   "nodes.addHostForEveryInbound": "استفاده از این گره به عنوان هاست تمام ورودی‌ها",
-  "nodes.addNewPasarGuardNode": "افزودن گره هیرکان",
+  "nodes.addNewHirkanNode": "افزودن گره هیرکان",
   "nodes.addNode": "افزودن گره",
   "nodes.addNodeSuccess": "گره {{name}} با موفقیت افزوده شد",
   "nodes.apply": "ویرایش گره",
@@ -2254,8 +2253,7 @@
     "pink": "صورتی",
     "previewBadge": "زنده",
     "previewCard": "ثانویه",
-    "previewMuted": "مصرف",
-    "toggle": "تغییر تم"
+    "previewMuted": "مصرف"
   },
   "coreConfigModal": {
     "addConfig": "افزودن پیکربندی هسته",
@@ -3750,8 +3748,5 @@
     "updateCommandLabel": "از طریق SSH متصل شوید و اجرا کنید:",
     "closeBanner": "بستن اعلان به‌روزرسانی",
     "needsUpdate": "نیاز به به‌روزرسانی"
-  },
-  "hirkan.navigation.operations": "مدیریت و آمار",
-  "hirkan.navigation.infrastructure": "زیرساخت و اشتراک",
-  "hirkan.navigation.administration": "مدیریت سیستم"
+  }
 }

@@ -1,6 +1,6 @@
-# PasarGuard CLI
+# Hirkan CLI
 
-A modern, type-safe command-line interface for managing PasarGuard, built with Typer. PasarGuard supports both [Xray-core](https://github.com/XTLS/Xray-core) and [WireGuard](https://www.wireguard.com/).
+A modern, type-safe command-line interface for managing Hirkan, built with Typer. Hirkan supports both [Xray-core](https://github.com/XTLS/Xray-core) and [WireGuard](https://www.wireguard.com/).
 
 ## Features
 
@@ -10,13 +10,13 @@ A modern, type-safe command-line interface for managing PasarGuard, built with T
 
 ## Installation
 
-The CLI is included with PasarGuard and can be used directly:
+The CLI is included with Hirkan and can be used directly:
 
 ```bash
-PasarGuard cli --help
+Hirkan cli --help
 
 # Or from the project root
-uv run PasarGuard-cli.py --help
+uv run hirkan-cli.py --help
 ```
 
 ## Usage
@@ -25,13 +25,13 @@ uv run PasarGuard-cli.py --help
 
 ```bash
 # Show version
-pasarguard cli version
+Hirkan cli version
 
 # Generate a one-time temp key for owner setup
-pasarguard cli generate-temp-key
+Hirkan cli generate-temp-key
 
 # Show help
-pasarguard cli --help
+Hirkan cli --help
 ```
 
 ### Owner Setup
@@ -39,5 +39,5 @@ pasarguard cli --help
 Admin management is handled from the dashboard. For owner setup, reset, delete, or upgrade operations, generate a one-time temp key and use it on the dashboard login page.
 
 ```bash
-pasarguard cli generate-temp-key
+Hirkan cli generate-temp-key
 ```

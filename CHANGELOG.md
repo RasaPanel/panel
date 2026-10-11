@@ -1,5 +1,14 @@
 # Hirkan changes
 
+## 2026-10-11 — Reference layout and subscription refresh
+
+- Restore reference navigation, statistics, settings tabs, UI primitives and localized descriptions.
+- Use Hirkan labels and PNG identity throughout the visible interface.
+- Coordinate subscription settings, configuration dialogs and both public templates with responsive cards.
+- Preserve form payloads, configuration formats, account status restrictions and persistent data paths.
+- Name the Compose service `hirkan-panel`; retain existing CLI compatibility aliases.
+
+
 ## 2026-10-11 — Hirkan identity and shared workspace
 
 - Replaced display branding and all packaged logo/favicon assets with Hirkan and the supplied H monogram.

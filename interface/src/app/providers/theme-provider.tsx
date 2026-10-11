@@ -34,7 +34,7 @@ type ThemeProviderState = {
 const initialState: ThemeProviderState = {
   theme: 'system',
   colorTheme: 'default',
-  radius: '0.7rem',
+  radius: '0.5rem',
   customization: DEFAULT_THEME_CUSTOMIZATION,
   resolvedTheme: 'light',
   setTheme: () => null,
@@ -92,7 +92,7 @@ const getSystemTheme = (): 'light' | 'dark' => {
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
-export function parseRadius(value: string | null, fallback: Radius = '0.7rem'): Radius {
+export function parseRadius(value: string | null, fallback: Radius = '0.5rem'): Radius {
   if (value === '0') return '0'
   if (!value) return fallback
   const match = value.trim().match(/^([\d.]+)rem$/)
@@ -111,7 +111,7 @@ export function ThemeProvider({
   children,
   defaultTheme = 'system',
   defaultColorTheme = 'default',
-  defaultRadius = '0.7rem',
+  defaultRadius = '0.5rem',
   storageKey = 'theme',
   colorStorageKey = 'color-theme',
   radiusStorageKey = 'radius',

@@ -1,6 +1,5 @@
 {
-  "rasa.welcome": "Добро пожаловать, {{name}}",
-  "pasarguard": "Hirkan",
+  "hirkan": "Hirkan",
   "dashboard": "Панель управления",
   "master": "Общее",
   "dashboardDescription": "Панель управления Hirkan",
@@ -1248,7 +1247,7 @@
   "monitorServers": "Следите за своими серверами и пользователями",
   "manageServers": "Управляйте данными вашего сервера",
   "nodes.addHostForEveryInbound": "Добавить этот узел, как новый хост для каждого inbound",
-  "nodes.addNewPasarGuardNode": "Добавить новый узел Hirkan",
+  "nodes.addNewHirkanNode": "Добавить новый узел Hirkan",
   "nodes.addNode": "Добавить узел",
   "nodes.addNodeSuccess": "Узел {{name}} успешно добавлен",
   "nodes.apply": "Настройки узла успешно обновлены",
@@ -1267,7 +1266,7 @@
   "nodes.reconnect": "Переподключиться",
   "nodes.reconnecting": "Переподключение...",
   "nodes.show-certificate": "Показать сертификат",
-  "nodes.title": "Используя Hirkan Node, Вы можете масштабировать инфраструктуру, добавляя узлы на разных серверах.",
+  "nodes.title": "Используя Hirkan-Node, Вы можете масштабировать инфраструктуру, добавляя узлы на разных серверах.",
   "nodes.usageCoefficient": "Коэффициент использования",
   "on_hold": "В ожидании",
   "duplicate": "Дублировать",
@@ -2230,8 +2229,7 @@
     "pink": "Розовый",
     "previewBadge": "Живой",
     "previewCard": "Дополнительная",
-    "previewMuted": "Использование",
-    "toggle": "Switch theme"
+    "previewMuted": "Использование"
   },
   "coreConfigModal": {
     "addConfig": "Добавить конфигурацию ядра",
@@ -3735,8 +3733,5 @@
     "updateCommandLabel": "Выполните через SSH:",
     "closeBanner": "Закрыть уведомление об обновлении",
     "needsUpdate": "Требуется обновление"
-  },
-  "hirkan.navigation.operations": "Operations",
-  "hirkan.navigation.infrastructure": "Infrastructure",
-  "hirkan.navigation.administration": "Administration"
+  }
 }

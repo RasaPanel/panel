@@ -1,4 +1,3 @@
-import { BRAND } from '@/constants/Project'
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { CircleFadingArrowUp, Power, PowerOff, RefreshCcw, Trash2, WifiSync } from 'lucide-react'
@@ -771,8 +770,8 @@ export default function NodesList() {
                   <h3 className="text-lg font-semibold">{t('nodes.noNodes')}</h3>
                   <p className="text-muted-foreground mx-auto max-w-2xl">
                     {t('nodes.noNodesDescription')}{' '}
-                    <a href={BRAND.nodeRepository || '#'} target="_blank" rel="noopener noreferrer" className="text-primary font-medium underline-offset-4 hover:underline">
-                      Hirkan Node
+                    <a href="https://github.com/RasaPanel/panel/blob/main/README.md#nodes" target="_blank" rel="noopener noreferrer" className="text-primary font-medium underline-offset-4 hover:underline">
+                      Hirkan
                     </a>{' '}
                     {t('nodes.noNodesDescription2', { defaultValue: 'and connect it to the panel.' })}
                   </p>

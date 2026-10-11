@@ -1,5 +1,4 @@
 {
-  "rasa.welcome": "欢迎回来，{{name}}",
   "active": "激活",
   "platform": "平台",
   "dashboard": "仪表板",
@@ -1717,7 +1716,7 @@
   "monitorServers": "监控您的服务器和用户",
   "manageServers": "控制您的服务器详细信息",
   "nodes.addHostForEveryInbound": "为每个入站请求添加此节点作为新主机",
-  "nodes.addNewPasarGuardNode": "添加新的 Hirkan 节点",
+  "nodes.addNewHirkanNode": "添加新的 Hirkan 节点",
   "nodes.addNode": "添加节点",
   "nodes.addNodeSuccess": "节点 {{name}} 添加成功",
   "nodes.apply": "编辑节点",
@@ -1735,7 +1734,7 @@
   "nodes.reconnect": "重新连接",
   "nodes.reconnecting": "重连中...",
   "nodes.show-certificate": "如何证书",
-  "nodes.title": "使用 Hirkan Node，您可以通过在不同的服务器上添加不同的节点来提供多节点负载。",
+  "nodes.title": "使用 Hirkan-Node，您可以通过在不同的服务器上添加不同的节点来提供多节点负载。",
   "nodes.usageCoefficient": "使用系数",
   "on_hold": "在线",
   "duplicate": "复制",
@@ -2006,7 +2005,7 @@
     "noHostsDescription": "开始创建您的第一个主机配置。",
     "noSearchResults": "没有主机匹配您的搜索条件。请尝试调整搜索词。"
   },
-  "pasarguard": "Hirkan",
+  "hirkan": "Hirkan",
   "group": {
     "createSuccess": "群组「{{name}}」已成功创建",
     "createFailed": "创建群组「{{name}}」失败",
@@ -2297,8 +2296,7 @@
     "pink": "粉色",
     "previewBadge": "实时",
     "previewCard": "次要",
-    "previewMuted": "用量",
-    "toggle": "Switch theme"
+    "previewMuted": "用量"
   },
   "coreConfigModal": {
     "addConfig": "添加核心配置",
@@ -3788,8 +3786,5 @@
     "updateCommandLabel": "通过 SSH 连接并运行:",
     "closeBanner": "关闭更新通知",
     "needsUpdate": "需要更新"
-  },
-  "hirkan.navigation.operations": "Operations",
-  "hirkan.navigation.infrastructure": "Infrastructure",
-  "hirkan.navigation.administration": "Administration"
+  }
 }

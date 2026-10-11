@@ -153,7 +153,7 @@ export function SubscriptionGeneralSettingsSection({ form }: SubscriptionGeneral
           name="allow_browser_config"
           render={({ field }) => (
             <FormItem className="bg-card hover:bg-accent/50 flex flex-row items-center justify-between space-y-0 rounded-lg border p-3 transition-colors sm:p-4 lg:col-span-2">
-              <div className="flex-1 space-y-0.5 pr-4">
+              <div className="flex-1 space-y-0.5 pe-4">
                 <FormLabel className="flex cursor-pointer items-center gap-2 text-xs font-medium sm:text-sm">
                   <Globe className="h-4 w-4 shrink-0" />
                   <span className="break-words">{t('settings.subscriptions.general.allowBrowserConfig')}</span>
@@ -172,7 +172,7 @@ export function SubscriptionGeneralSettingsSection({ form }: SubscriptionGeneral
           name="disable_sub_template"
           render={({ field }) => (
             <FormItem className="bg-card hover:bg-accent/50 flex flex-row items-center justify-between space-y-0 rounded-lg border p-3 transition-colors sm:p-4 lg:col-span-2">
-              <div className="flex-1 space-y-0.5 pr-4">
+              <div className="flex-1 space-y-0.5 pe-4">
                 <FormLabel className="flex cursor-pointer items-center gap-2 text-xs font-medium sm:text-sm">
                   <FileCode2 className="h-4 w-4 shrink-0" />
                   <span className="break-words">{t('settings.subscriptions.general.disableSubTemplate')}</span>
@@ -191,7 +191,7 @@ export function SubscriptionGeneralSettingsSection({ form }: SubscriptionGeneral
           name="randomize_order"
           render={({ field }) => (
             <FormItem className="bg-card hover:bg-accent/50 flex flex-row items-center justify-between space-y-0 rounded-lg border p-3 transition-colors sm:p-4 lg:col-span-2">
-              <div className="flex-1 space-y-0.5 pr-4">
+              <div className="flex-1 space-y-0.5 pe-4">
                 <FormLabel className="flex cursor-pointer items-center gap-2 text-xs font-medium sm:text-sm">
                   <Shuffle className="h-4 w-4 shrink-0" />
                   <span className="break-words">{t('settings.subscriptions.general.randomizeOrder')}</span>

@@ -198,7 +198,7 @@ const SubscriptionModal: FC<SubscriptionModalProps> = memo(({ open, subscribeUrl
   return (
     <>
       <Dialog open={isOpen && !isConfigQrOpen} onOpenChange={onCloseModal}>
-        <DialogContent className="max-h-[90dvh] max-w-[860px] overflow-x-hidden overflow-y-auto">
+        <DialogContent className="hirkan-sub-dialog max-h-[90dvh] max-w-[860px] overflow-x-hidden overflow-y-auto">
           <DialogHeader dir={dir}>
             <DialogTitle className="flex items-center gap-2">
               <ScanQrCode className="h-5 w-5 shrink-0" />
@@ -207,7 +207,7 @@ const SubscriptionModal: FC<SubscriptionModalProps> = memo(({ open, subscribeUrl
           </DialogHeader>
 
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:items-center">
-            <div className="flex flex-col items-center gap-3">
+            <div className="hirkan-sub-qr flex flex-col items-center gap-3">
               <div dir="ltr" className="flex max-w-[280px] items-center justify-center overflow-hidden">
                 <QRCodeCanvas value={subscribeQrLink} size={260} className="rounded-sm bg-white p-1.5" />
               </div>

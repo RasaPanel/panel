@@ -24,7 +24,7 @@
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
     --ring: 216 46% 40%;
-    --radius: 0.7rem;
+    --radius: 0.5rem;
     --hover-primary: 216 46% 30%;
     --hover-secondary: 240 5% 85%;
     --hover-destructive: 0 84% 60%;
@@ -88,7 +88,7 @@
     --destructive: 0 72% 51%;
     --destructive-foreground: 210 40% 98%;
     --ring: 215 16% 47%;
-    --radius: 0.7rem;
+    --radius: 0.5rem;
     --hover-primary: 216 41% 49%;
     --hover-secondary: 216 41% 49%;
     --hover-destructive: 0 84% 60%;
@@ -455,139 +455,49 @@
   }
 }
 
-/* Shared Hirkan workspace surfaces. */
-@layer base {
-
-  img[alt='Hirkan Logo'] {
-    object-fit: contain;
-  }
+/* Subscription surfaces use the selected theme and preserve the reference layout. */
+.hirkan-sub-section {
+  min-width: 0;
+  padding: clamp(1rem, 2.5vw, 1.75rem);
+  border: 1px solid hsl(var(--border));
+  border-radius: 1rem;
+  background: linear-gradient(145deg, hsl(var(--primary) / .045), transparent 45%), hsl(var(--card));
+  box-shadow: 0 8px 28px hsl(var(--foreground) / .025);
 }
-.hirkan-workspace {
-  background: hsl(var(--background));
+.hirkan-sub-section > div > div:first-child:has(h3) {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid hsl(var(--border) / .7);
 }
-.hirkan-card {
-  border-color: hsl(var(--border) / 0.7);
-  box-shadow: 0 2px 12px -8px hsl(var(--foreground) / 0.14);
+.hirkan-sub-section h3 { letter-spacing: -.015em; }
+.hirkan-sub-section input, .hirkan-sub-section textarea { border-radius: .65rem; }
+.hirkan-sub-settings > div:has(button[type='submit']) {
+  position: sticky;
+  bottom: 1rem;
+  z-index: 10;
+  padding: .85rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: .85rem;
+  background: hsl(var(--background) / .92);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px hsl(var(--foreground) / .08);
 }
-.hirkan-page-header {
-  border-bottom: 1px solid hsl(var(--border) / 0.4);
+.hirkan-sub-dialog {
+  border-radius: 1.25rem;
+  background: linear-gradient(135deg, hsl(var(--primary) / .07), transparent 55%), hsl(var(--background));
 }
-.hirkan-sidebar-header {
-  margin: 0.45rem 0.35rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid hsl(var(--sidebar-border) / 0.6);
+.hirkan-sub-dialog > div:first-child { padding-bottom: 1rem; border-bottom: 1px solid hsl(var(--border)); }
+.hirkan-sub-qr {
+  padding: 1.5rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: 1rem;
+  background: hsl(var(--muted) / .3);
 }
-.hirkan-sidebar [data-sidebar='menu-button'][data-active='true'] {
-  background: hsl(var(--primary) / 0.12);
-  color: hsl(var(--primary));
-  box-shadow: inset 3px 0 0 hsl(var(--primary));
-  font-weight: 600;
-}
-[dir='rtl'] .hirkan-sidebar [data-sidebar='menu-button'][data-active='true'] {
-  box-shadow: inset -3px 0 0 hsl(var(--primary));
-}
-.hirkan-sidebar [data-sidebar='menu-sub-button'][data-active='true'] {
-  background: hsl(var(--primary) / 0.1);
-  color: hsl(var(--primary));
-}
-.hirkan-login {
-  background: hsl(var(--background));
-}
-.hirkan-login-panel {
-  border: 1px solid hsl(var(--border) / 0.65);
-  border-top: 2px solid hsl(var(--primary));
-  border-radius: calc(var(--radius) + 0.3rem);
-  background: hsl(var(--card));
-  box-shadow: 0 16px 48px -30px hsl(var(--foreground) / 0.25);
-}
-@media (prefers-reduced-motion: reduce) {
-  .hirkan-workspace {
-    scroll-behavior: auto;
-  }
-}
-
-/* Small composition accents; keep forms and content density unchanged. */
-.hirkan-heading-icon {
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: var(--radius);
-  color: hsl(var(--primary));
-  background: hsl(var(--primary) / 0.1);
-  border: 1px solid hsl(var(--primary) / 0.15);
-}
-.hirkan-sidebar-header {
-  border-radius: var(--radius);
-  background: hsl(var(--primary) / 0.035);
-  padding: 0.5rem;
-}
-.hirkan-table thead {
-  background: hsl(var(--primary) / 0.045);
-}
-.hirkan-table tbody tr:nth-child(even) {
-  background: hsl(var(--muted) / 0.18);
-}
-.hirkan-table tbody tr:hover {
-  background: hsl(var(--primary) / 0.065);
-}
-.hirkan-table tbody tr[data-state='selected'] {
-  background: hsl(var(--primary) / 0.12);
-}
-
-.hirkan-resource-gauge {
-  border-top: 2px solid hsl(var(--primary) / 0.5);
-}
-.hirkan-gauge-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: var(--radius);
-  color: hsl(var(--primary));
-  background: hsl(var(--primary) / 0.1);
-}
-.hirkan-overview-toolbar {
-  padding-block: 0.5rem;
-}
-
-/* Layout accents use the selected theme variables, including the original palette. */
-.hirkan-workspace { min-width: 0; }
-.hirkan-sidebar [data-sidebar='group'] { padding: 0.65rem 0.75rem; }
-.hirkan-sidebar [data-sidebar='group-label'] {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: hsl(var(--muted-foreground));
-}
-.hirkan-sidebar [data-sidebar='menu-button'] { border-radius: var(--radius); min-height: 2.4rem; }
-.hirkan-sidebar [data-sidebar='menu-sub'] { margin-inline: 0.7rem; }
-.hirkan-sidebar [data-sidebar='footer'] { border-top: 1px solid hsl(var(--border) / 0.6); }
-.hirkan-sidebar-header img, .hirkan-logo, img[alt='Hirkan Logo'] {
-  border-radius: 0.4rem;
-  background: #050505;
-  object-fit: contain;
-}
-.hirkan-page-header { margin-block-end: 0.35rem; border-bottom: 1px solid hsl(var(--border) / 0.7); }
-.hirkan-heading-icon { border: 1px solid hsl(var(--primary) / 0.15); border-radius: var(--radius); }
-.hirkan-header-actions { display: flex; justify-content: flex-end; }
-.hirkan-card { overflow-wrap: anywhere; border-radius: var(--radius); }
-.hirkan-table-container { border: 1px solid hsl(var(--border) / 0.65); border-radius: var(--radius); }
-.hirkan-table thead { background: hsl(var(--muted) / 0.6); }
-.hirkan-table th { font-weight: 600; height: 2.8rem; padding-inline: 0.75rem; }
-.hirkan-table td { padding: 0.65rem 0.75rem; }
-.hirkan-table tbody tr { border-bottom-color: hsl(var(--border) / 0.45); }
-.hirkan-tabs-list { gap: 0.2rem; padding: 0.25rem; border: 1px solid hsl(var(--border) / 0.65); border-radius: var(--radius); }
-.hirkan-tabs-trigger[data-state='active'] { box-shadow: inset 0 -2px hsl(var(--primary)); color: hsl(var(--primary)); }
-.hirkan-dialog { border-radius: calc(var(--radius) + 0.15rem); border-top: 2px solid hsl(var(--primary)); }
-.hirkan-dialog-header { padding-bottom: 0.9rem; border-bottom: 1px solid hsl(var(--border) / 0.6); }
-.hirkan-dialog-footer { padding-top: 0.9rem; border-top: 1px solid hsl(var(--border) / 0.6); }
-.hirkan-input { transition: border-color 150ms, box-shadow 150ms; }
-.hirkan-input:focus-visible { border-color: hsl(var(--primary)); }
-@media (min-width: 1024px) {
-  .hirkan-workspace { padding-inline: 0.4rem; }
-  .hirkan-sidebar [data-sidebar='content'] { padding-top: 0.25rem; }
-}
-@media (max-width: 639px) {
-  .hirkan-header-actions > button, .hirkan-header-actions > [data-state] { width: 100%; }
-  .hirkan-table th, .hirkan-table td { padding-inline: 0.5rem; }
+.hirkan-sub-qr canvas { max-width: 100%; height: auto !important; }
+.hirkan-config-row { background: hsl(var(--card)); transition: border-color .2s, background .2s; }
+.hirkan-config-row:hover { border-color: hsl(var(--primary) / .4); background: hsl(var(--primary) / .04); }
+@media (max-width: 480px) {
+  .hirkan-sub-dialog { padding: 1rem; }
+  .hirkan-sub-qr { padding: 1rem; }
+  .hirkan-sub-settings > div:has(button[type='submit']) { bottom: .5rem; }
 }

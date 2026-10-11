@@ -16,8 +16,9 @@ class Status(StrEnum):
     disabled = "disabled"
 
 
+@pytest.mark.parametrize("template", ["subscription/classic.html", "subscription/index.html"])
 @pytest.mark.parametrize("status", list(Status))
-def test_classic_page_keeps_account_details_and_status_link_visibility(status):
+def test_classic_page_keeps_account_details_and_status_link_visibility(status, template):
     user = SimpleNamespace(
         username="rasa_preview",
         status=status,
@@ -29,7 +30,7 @@ def test_classic_page_keeps_account_details_and_status_link_visibility(status):
         on_hold_timeout=None,
     )
     html = render_template(
-        "subscription/classic.html",
+        template,
         {
             "user": user,
             "links": ["vless://preview@example.invalid:443"],
@@ -45,6 +46,9 @@ def test_classic_page_keeps_account_details_and_status_link_visibility(status):
     assert ('class="link-input"' in html) == (status in {Status.active, Status.on_hold})
     assert 'id="qrPopup"' in html
     assert "function toggleTheme()" in html
+    assert 'alt="Hirkan"' in html
+    assert "hirkan-brand" in html
+    assert "PasarGuard" not in html
 
 
 def test_classic_is_default_and_explicit_template_choice_is_supported(monkeypatch):
@@ -52,3 +56,21 @@ def test_classic_is_default_and_explicit_template_choice_is_supported(monkeypatc
     assert TemplateSettings(_env_file=None).subscription_page_template == "subscription/classic.html"
     monkeypatch.setenv("SUBSCRIPTION_PAGE_TEMPLATE", "subscription/custom.html")
     assert TemplateSettings(_env_file=None).subscription_page_template == "subscription/custom.html"
+
+
+@pytest.mark.parametrize("template", ["subscription/classic.html", "subscription/index.html"])
+def test_subscription_page_escapes_account_and_link_values(template):
+    user = SimpleNamespace(
+        username='<script>alert("account")</script>',
+        status=Status.active,
+        data_limit=0,
+        used_traffic=0,
+        data_limit_reset_strategy="no_reset",
+        expire=None,
+    )
+    link = 'vless://demo@example.invalid:443#name\" onfocus=\"alert(1)'
+    html = render_template(template, {"user": user, "links": [link], "apps": [], "announce": '<img src=x onerror=alert(1)>', "announce_url": None})
+    assert '<script>alert("account")</script>' not in html
+    assert '<img src=x onerror=alert(1)>' not in html
+    assert '&#34; onfocus=&#34;' in html
+    assert "copyLink(this.parentElement.querySelector('.link-input').value, this)" in html
