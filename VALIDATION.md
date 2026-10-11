@@ -1,5 +1,15 @@
 # Validation — 2026-10-11
 
+## Rasa theme refinement
+
+- Restored dashboard and navigation components from the upstream layout; retained Rasa branding and API configuration.
+- Removed the welcome banner and split-login layout, and restored table spacing.
+- Changed the Default palette in theme configuration to charcoal/teal; persisted non-default theme choices remain available.
+- Local Chromium checks with mock API fixtures: Persian dark desktop/mobile dashboard and login, English light desktop dashboard, and read-only operator dashboard.
+- No dashboard runtime errors or horizontal viewport overflow in the checked layouts.
+- Clean Vite production build passed. Strict app TypeScript diagnostics remain at the recorded 26-error baseline.
+- Browser fixtures are not a production deployment or a backend integration test.
+
 ## Rasa workspace redesign
 
 - Clean Vite production build and service-worker generation passed.

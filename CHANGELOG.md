@@ -1,5 +1,13 @@
 # Rasa Panel changes
 
+## 2026-10-11 — Rasa theme refinement
+
+- Restored the original dashboard statistics arrangement, navigation density, table spacing, page header and centered login layout.
+- Removed the added welcome banner and desktop split-login composition.
+- Set the default Rasa palette to charcoal with teal accents, coordinated chart colors and readable contrast in light and dark mode.
+- Kept existing theme selections and customization controls; the revised palette applies to the Default theme.
+- Kept Rasa logos, labels, documentation links and the existing API and permission behavior.
+
 ## 2026-10-11 — Rasa workspace redesign
 
 - Rebuilt the dashboard layout: branded welcome banner and permission-aware create-user action, three user KPIs, separate CPU/RAM/disk meters, traffic breakdown and uptime.

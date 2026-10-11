@@ -9,8 +9,7 @@ import { useAdmin } from '@/hooks/use-admin'
 import { useClipboard } from '@/hooks/use-clipboard'
 import type { AdminDetails, UserResponse } from '@/service/api'
 import { useGetSystemResourceStats, useGetSystemUsersStats } from '@/service/api'
-import { Bookmark, Plus, ArrowUpRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Bookmark } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -107,25 +106,10 @@ const Dashboard = () => {
       </div>
 
       <div className="w-full px-3 pt-2 sm:px-4">
-        <section className="rasa-dashboard-hero mb-5 flex flex-col justify-between gap-5 p-6 sm:flex-row sm:items-center sm:p-8">
-          <div className="relative z-10 min-w-0">
-            <span className="mb-3 inline-flex items-center gap-2 text-xs font-medium tracking-widest opacity-75">
-              <ArrowUpRight className="h-4 w-4" /> RASA PANEL
-            </span>
-            <h2 className="text-2xl font-semibold sm:text-3xl">{t('rasa.welcome', { name: currentAdmin?.username ?? 'Rasa' })}</h2>
-            <p className="mt-2 max-w-xl text-sm leading-7 opacity-80">{t('dashboardDescription')}</p>
-          </div>
-          {canCreateUsers && (
-            <Button onClick={handleCreateUser} className="rasa-hero-action bg-card text-foreground hover:bg-background relative z-10 shrink-0 gap-2">
-              <Plus className="h-4 w-4" />
-              {t('createUser', { defaultValue: t('userSettings.createUser', { defaultValue: 'Create user' }) })}
-            </Button>
-          )}
-        </section>
         <div className="flex flex-col gap-4 sm:gap-6">
           <DashboardStatistics resourceData={systemResourceStatsData} usersData={systemUsersStatsData} />
           {canReadNodeStats && <WorkersHealthCard />}
-          <Separator className="my-1" />
+          <Separator className="my-4" />
           {canReadAllUsers ? (
             <>
               <AdminFilterCombobox

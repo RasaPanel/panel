@@ -3,8 +3,8 @@ import * as React from 'react'
 import { cn } from '@/lib/utils'
 
 const Table = React.forwardRef<HTMLTableElement, React.HTMLAttributes<HTMLTableElement> & { containerClassName?: string }>(({ className, containerClassName, ...props }, ref) => (
-  <div className={cn('rasa-table-container relative w-full overflow-x-auto', containerClassName)}>
-    <table ref={ref} className={cn('rasa-table w-full caption-bottom text-sm', className)} {...props} />
+  <div className={cn('relative w-full overflow-x-auto', containerClassName)}>
+    <table ref={ref} className={cn('w-full caption-bottom text-sm', className)} {...props} />
   </div>
 ))
 Table.displayName = 'Table'
@@ -30,16 +30,12 @@ const TableRow = React.forwardRef<HTMLTableRowElement, React.HTMLAttributes<HTML
 TableRow.displayName = 'TableRow'
 
 const TableHead = React.forwardRef<HTMLTableCellElement, React.ThHTMLAttributes<HTMLTableCellElement>>(({ className, ...props }, ref) => (
-  <th
-    ref={ref}
-    className={cn('text-muted-foreground h-12 px-3 text-start align-middle text-xs font-semibold [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]', className)}
-    {...props}
-  />
+  <th ref={ref} className={cn('text-muted-foreground h-10 px-2 text-start align-middle font-normal [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]', className)} {...props} />
 ))
 TableHead.displayName = 'TableHead'
 
 const TableCell = React.forwardRef<HTMLTableCellElement, React.TdHTMLAttributes<HTMLTableCellElement>>(({ className, ...props }, ref) => (
-  <td ref={ref} className={cn('px-3 py-3 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]', className)} {...props} />
+  <td ref={ref} className={cn('p-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]', className)} {...props} />
 ))
 TableCell.displayName = 'TableCell'
 
