@@ -1,5 +1,14 @@
 # Rasa Panel changes
 
+## 2026-10-11 — Rasa workspace redesign
+
+- Rebuilt the dashboard layout: branded welcome banner and permission-aware create-user action, three user KPIs, separate CPU/RAM/disk meters, traffic breakdown and uptime.
+- Replaced the centered desktop login card with a two-column brand and authentication layout; retained owner setup, Telegram login, language and theme controls.
+- Redesigned navigation with prominent active items, spaced icon buttons and quieter section labels.
+- Restyled shared tables with clearer headers, alternating rows, selection and hover states, and RTL-aligned headings.
+- Preserved the existing theme palette, API data sources, administration permissions and user workflows.
+- Added translated welcome headings in all four supported languages.
+
 ## 2026-10-11 — Interface and documentation update
 
 - Restyled login surface, sidebar brand header, active navigation, cards and page headings using the existing theme tokens.

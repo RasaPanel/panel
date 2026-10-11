@@ -377,12 +377,24 @@ export const Login: FC = () => {
           <Language />
           <ThemeToggle />
         </div>
-        <div className="flex w-full items-center justify-center">
-          <div className="rasa-login-panel my-6 w-full max-w-[420px] p-5 sm:p-8">
+        <div className="rasa-login-layout">
+          <aside className="rasa-login-brand">
+            <span className="rasa-brand-eyebrow">RASA PANEL</span>
+            <div className="rasa-brand-art" aria-hidden="true">
+              <div className="rasa-brand-orbit" />
+              <div className="rasa-brand-orbit rasa-brand-orbit-inner" />
+              <img src="/statics/favicon/logo.png" alt="" />
+            </div>
+            <div className="relative z-10">
+              <h1 className="text-4xl leading-tight font-semibold">{t('pasarguard')}</h1>
+              <p className="mt-4 max-w-sm text-base leading-8 opacity-75">{t('dashboardDescription')}</p>
+            </div>
+          </aside>
+          <div className="rasa-login-panel w-full p-6 sm:p-10">
             <div className="flex flex-col items-center gap-2">
               <img src={resolvedTheme === 'dark' ? '/statics/favicon/logo.png' : '/statics/favicon/logo-dark.png'} alt="Rasa Panel Logo" className="h-20 w-20 object-contain" />
               <span className="text-2xl font-semibold">{view === 'login' ? t('login.loginYourAccount') : t('setup.ownerAccess', { defaultValue: 'Owner access' })}</span>
-              <span className="text-center text-muted-foreground">
+              <span className="text-muted-foreground text-center">
                 {view === 'login'
                   ? t('login.welcomeBack')
                   : t('setup.ownerAccessDescription', {
@@ -391,7 +403,7 @@ export const Login: FC = () => {
               </span>
             </div>
 
-            <div className="mx-auto w-full max-w-[300px] pt-4">
+            <div className="mx-auto w-full max-w-[360px] pt-6">
               {view === 'login' ? (
                 <form onSubmit={handleSubmit(handleLogin)} autoComplete="on">
                   <div className="mt-4 flex flex-col gap-y-2">

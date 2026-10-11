@@ -1,4 +1,5 @@
 {
+  "rasa.welcome": "欢迎回来，{{name}}",
   "active": "激活",
   "platform": "平台",
   "dashboard": "仪表板",

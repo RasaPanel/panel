@@ -1,5 +1,14 @@
 # Validation — 2026-10-11
 
+## Rasa workspace redesign
+
+- Clean Vite production build and service-worker generation passed.
+- App TypeScript diagnostics remain at 26, matching the recorded pre-redesign baseline; no new diagnostics.
+- Local Chromium inspection with mock API fixtures: Persian dark login and dashboard at desktop and 390px mobile, and English light desktop dashboard.
+- No page runtime errors or horizontal viewport overflow in those dashboard checks.
+- The dashboard create-user action opens the existing user dialog; the action is absent for a read-only operator.
+- These browser fixtures validate presentation and client interactions, not a live backend or deployment on the user's server. Full backend regression tests were not repeated for this presentation change.
+
 ## Rasa interface/documentation update
 
 The update changes presentation, guide links and Docker build packaging; no

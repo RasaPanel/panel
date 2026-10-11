@@ -457,69 +457,255 @@
 
 /* Rasa branding: retain the original light/dark palette and density. */
 @layer base {
-  .dark img[alt="Rasa Panel Logo"] { filter: invert(1); }
-  img[alt="Rasa Panel Logo"] { object-fit: contain; }
+  .dark img[alt='Rasa Panel Logo'] {
+    filter: invert(1);
+  }
+  img[alt='Rasa Panel Logo'] {
+    object-fit: contain;
+  }
 }
 
 @layer components {
-  .rasa-login {
-    background-image: radial-gradient(ellipse at 15% 15%, hsl(var(--primary) / 0.12), transparent 48%),
-      radial-gradient(ellipse at 85% 80%, hsl(var(--primary) / 0.07), transparent 45%);
+  .rasa-workspace {
+    background: hsl(var(--background));
   }
-
-  .rasa-login-panel {
-    border: 1px solid hsl(var(--border) / 0.65);
-    border-top: 3px solid hsl(var(--primary));
-    border-radius: calc(var(--radius) + 0.75rem);
-    background: hsl(var(--card) / 0.94);
-    box-shadow: 0 20px 60px -30px hsl(var(--foreground) / 0.22);
+  .rasa-page-header {
+    border-bottom: 1px solid hsl(var(--border) / 0.45);
+    background: hsl(var(--card) / 0.6);
   }
-
-  .rasa-login-panel img {
-    margin-bottom: 0.75rem;
+  .rasa-page-header h1 {
+    font-size: 1.45rem;
   }
-
-  .rasa-sidebar-header {
-    margin: 0.75rem 0.5rem;
-    padding: 0.5rem;
-    border: 1px solid hsl(var(--sidebar-border));
-    border-radius: calc(var(--radius) + 0.25rem);
-    background: hsl(var(--card) / 0.45);
+  .rasa-card {
+    border-color: hsl(var(--border) / 0.55);
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px -14px hsl(var(--foreground) / 0.2);
   }
-
-  [data-sidebar='menu-button'][data-active='true'],
-  [data-sidebar='menu-sub-button'][data-active='true'] {
-    background: hsl(var(--primary) / 0.12);
+  .rasa-dashboard-hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    color: hsl(var(--primary-foreground));
+    background: linear-gradient(115deg, hsl(var(--primary)), hsl(var(--primary) / 0.85));
+  }
+  .rasa-dashboard-hero::after {
+    content: '';
+    position: absolute;
+    width: 22rem;
+    height: 22rem;
+    border: 45px solid rgb(255 255 255 / 0.07);
+    border-radius: 50%;
+    inset-inline-end: -5rem;
+    top: -10rem;
+    pointer-events: none;
+  }
+  .rasa-hero-action {
+    background: hsl(var(--card));
     color: hsl(var(--foreground));
-    box-shadow: inset 3px 0 0 hsl(var(--primary));
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.12);
+  }
+  .rasa-hero-action:hover {
+    background: hsl(var(--background));
+  }
+  .rasa-tone-blue {
+    --metric: 216 70% 55%;
+  }
+  .rasa-tone-violet {
+    --metric: 258 66% 62%;
+  }
+  .rasa-tone-green {
+    --metric: 155 65% 40%;
+  }
+  .rasa-tone-amber {
+    --metric: 35 85% 48%;
+  }
+  .rasa-user-metric {
+    border-top: 3px solid hsl(var(--metric));
+  }
+  .rasa-metric-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.9rem;
+    color: hsl(var(--metric, var(--primary)));
+    background: hsl(var(--metric, var(--primary)) / 0.12);
+  }
+  .rasa-metric-ratio {
+    color: hsl(var(--metric));
+    background: hsl(var(--metric) / 0.1);
+    padding: 0.35rem 0.6rem;
+    border-radius: 0.6rem;
+    font-size: 0.75rem;
     font-weight: 600;
   }
-
-  [dir='rtl'] [data-sidebar='menu-button'][data-active='true'],
-  [dir='rtl'] [data-sidebar='menu-sub-button'][data-active='true'] {
-    box-shadow: inset -3px 0 0 hsl(var(--primary));
+  .rasa-meter {
+    height: 0.4rem;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: hsl(var(--muted));
   }
-
-  .rasa-page-header {
-    border-bottom: 1px solid hsl(var(--border) / 0.5);
+  .rasa-meter > span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: hsl(var(--metric, var(--primary)));
+    transition: width 0.4s ease;
   }
-
-  .rasa-page-header h1 {
-    padding-inline-start: 0.7rem;
-    border-inline-start: 3px solid hsl(var(--primary));
+  .rasa-transfer {
+    padding-inline-start: 1rem;
+    border-inline-start: 1px solid hsl(var(--border) / 0.5);
   }
-
-  .rasa-card {
-    border-radius: calc(var(--radius) + 0.35rem);
-    background-image: linear-gradient(135deg, hsl(var(--primary) / 0.025), transparent 55%);
+  .rasa-sidebar [data-sidebar='sidebar'] {
+    background: hsl(var(--card));
   }
-
-  .rasa-workspace {
-    background-image: radial-gradient(ellipse at top, hsl(var(--primary) / 0.035), transparent 55%);
+  .rasa-sidebar-header {
+    margin: 0.8rem 0.5rem 1rem;
+    padding: 0.65rem 0.35rem 1rem;
+    border-bottom: 1px solid hsl(var(--sidebar-border) / 0.6);
+  }
+  .rasa-sidebar [data-sidebar='group-label'] {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.65rem;
+    opacity: 0.65;
+  }
+  .rasa-nav-button {
+    min-height: 2.75rem;
+    border-radius: 0.8rem;
+    padding: 0.7rem;
+    margin-block: 0.15rem;
+    gap: 0.75rem;
+  }
+  .rasa-nav-button > svg {
+    color: hsl(var(--muted-foreground));
+  }
+  [data-sidebar='menu-button'][data-active='true'] {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    box-shadow: 0 5px 14px hsl(var(--primary) / 0.2);
+    font-weight: 600;
+  }
+  [data-sidebar='menu-button'][data-active='true'] > svg {
+    color: inherit;
+  }
+  [data-sidebar='menu-sub-button'][data-active='true'] {
+    background: hsl(var(--primary) / 0.12);
+    color: hsl(var(--primary));
+    font-weight: 600;
+  }
+  [data-collapsible='icon'] .rasa-nav-button {
+    min-height: 2rem;
+    padding: 0.5rem;
+  }
+  .rasa-table-container {
+    border: 1px solid hsl(var(--border) / 0.55);
+    border-radius: 1rem;
+    background: hsl(var(--card));
+  }
+  .rasa-table thead {
+    background: hsl(var(--muted) / 0.6);
+  }
+  .rasa-table tbody tr {
+    border-color: hsl(var(--border) / 0.4);
+  }
+  .rasa-table tbody tr:nth-child(even) {
+    background: hsl(var(--muted) / 0.15);
+  }
+  .rasa-table tbody tr:hover {
+    background: hsl(var(--primary) / 0.06);
+  }
+  .rasa-table tbody tr[data-state='selected'] {
+    background: hsl(var(--primary) / 0.12);
+  }
+  .rasa-login {
+    background: radial-gradient(ellipse at top, hsl(var(--primary) / 0.1), transparent 65%), hsl(var(--background));
+  }
+  .rasa-login-layout {
+    display: grid;
+    width: 100%;
+    max-width: 1080px;
+    margin: clamp(1.5rem, 5vh, 5rem) auto;
+    border: 1px solid hsl(var(--border) / 0.5);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background: hsl(var(--card));
+    box-shadow: 0 24px 70px -35px rgb(0 0 0 / 0.3);
+  }
+  .rasa-login-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .rasa-login-panel input {
+    border-radius: 0.75rem;
+  }
+  .rasa-login-brand {
+    display: none;
+    position: relative;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 3rem;
+    color: white;
+    background: linear-gradient(145deg, hsl(var(--primary)), hsl(216 45% 16%));
+  }
+  .rasa-brand-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    opacity: 0.7;
+  }
+  .rasa-brand-art {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 250px;
+  }
+  .rasa-brand-art img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    filter: invert(1);
+    position: relative;
+    z-index: 1;
+  }
+  .rasa-brand-orbit {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgb(255 255 255 / 0.18);
+    border-radius: 50%;
+  }
+  .rasa-brand-orbit-inner {
+    width: 240px;
+    height: 240px;
+    border-style: dashed;
+    transform: rotate(25deg);
+  }
+  @media (min-width: 900px) {
+    .rasa-login-layout {
+      grid-template-columns: 1fr 1fr;
+      min-height: 630px;
+    }
+    .rasa-login-brand {
+      display: flex;
+    }
+  }
+  @media (max-width: 899px) {
+    .rasa-login-layout {
+      max-width: 480px;
+    }
   }
 }
-
 @media (prefers-reduced-motion: reduce) {
-  [data-sidebar='sidebar'] { transition: none; }
-  .rasa-workspace { scroll-behavior: auto; }
+  .rasa-meter > span,
+  [data-sidebar='sidebar'] {
+    transition: none;
+  }
+  .rasa-workspace {
+    scroll-behavior: auto;
+  }
 }

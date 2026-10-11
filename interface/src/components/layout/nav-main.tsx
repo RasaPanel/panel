@@ -51,7 +51,7 @@ export function NavMain({
               <CollapsibleTrigger asChild>
                 <NavLink to={item.url} onClick={handleNavigation}>
                   {({ isActive }) => (
-                    <SidebarMenuButton tooltip={t(item.title)} isActive={isActive}>
+                    <SidebarMenuButton className="rasa-nav-button data-[active=true]:bg-primary data-[active=true]:text-primary-foreground" tooltip={t(item.title)} isActive={isActive}>
                       <item.icon />
                       <span>{t(item.title)}</span>
                     </SidebarMenuButton>
