@@ -24,9 +24,18 @@ Remaining strict TypeScript diagnostics: 26, involving existing subscription for
 notification schema, host transport and filter typings plus Bun test declarations.
 The production build succeeds; a completely clean strict typecheck is not claimed.
 
-No real remote node, real proxy traffic, Docker Engine build, production server,
-GitHub publication or TLS deployment was available for testing.
+GitHub publication to RasaPanel/panel was verified by reading the published
+brand configuration and NOTICE and inspecting the repository page.
+GitHub Actions API CodeQL, Frontend CodeQL and Code Format Checker passed.
+All five database jobs passed migration and migration checks, but their test
+steps failed. Full CI success is not claimed. The inherited upstream Telegram
+workflow failed at startup and was replaced with an inactive, manual Rasa
+configuration placeholder; no repository notifications are sent.
+
+No real remote node, real proxy traffic, Docker Engine build, production server
+or TLS deployment was available for testing.
 Visual browser validation was unavailable because the Chromium download failed.
-Brand endpoints are intentionally empty until the user supplies their GitHub,
-documentation and support URLs. Core/node dependency names and mandatory
+Repository and organization URLs are configured for RasaPanel. Support is
+https://t.me/dev_vexel. Documentation and optional brand endpoints remain
+unconfigured. Core/node dependency names and mandatory
 license/attribution are preserved. No source concealment claim is made.

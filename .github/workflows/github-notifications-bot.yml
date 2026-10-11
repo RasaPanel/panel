@@ -1,17 +1,11 @@
-name: Telegram Notification
+name: Rasa Telegram Notification Setup
 
 on:
-  push:
-    branches:
-      - main
-      - dev
-  pull_request_target:
-    types: [opened, closed]
+  workflow_dispatch:
 
 jobs:
   notify:
-    uses: PasarGuard/.github/.github/workflows/telegram-notify.yml@main
-    secrets:
-      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-    with:
-      telegram_targets: ${{ vars.TELEGRAM_TARGETS }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notification configuration
+        run: echo 'Rasa repository notifications are inactive until a dedicated bot and destination are configured. Support contact is not a notification destination.'
