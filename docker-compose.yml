@@ -1,7 +1,7 @@
 services:
-  rasa-panel:
+  hirkan-panel:
     build: .
-    image: rasa-panel:local
+    image: hirkan-panel:local
     restart: always
     env_file: .env
     environment:

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SERVICE_NAME="rasa-panel"
+SERVICE_NAME="hirkan-panel"
 SERVICE_DESCRIPTION="Hirkan Service"
 SERVICE_DOCUMENTATION="${RASA_REPOSITORY_URL:-}"
 MAIN_PY_PATH="$PWD/main.py"

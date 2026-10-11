@@ -15,7 +15,7 @@
 
 Hirkan brings user administration, distributed nodes, subscriptions and usage monitoring into one multilingual interface. The Python backend exposes a REST API; the React interface supports desktop and mobile, right-to-left languages, and customizable light and dark themes.
 
-This is a modified distribution of PasarGuard 5.4.1. The original license and contributor attribution are preserved in [LICENSE](LICENSE) and [NOTICE](NOTICE).
+License and contributor attribution are preserved in [LICENSE](LICENSE) and [NOTICE](NOTICE).
 
 **Contents:** [Features](#features) · [Installation](#installation) · [Configuration](#configuration) · [Users](#users) · [Nodes](#nodes) · [Subscriptions](#subscriptions) · [Updating](#updating) · [Backups](#backups) · [Troubleshooting](#troubleshooting) · [Development](#development)
 
@@ -33,7 +33,7 @@ This is a modified distribution of PasarGuard 5.4.1. The original license and co
 | Integrations | Panel Telegram integration, webhooks and notification settings |
 | Interface | Persian/RTL, English and additional bundled translations; light/dark themes, density and color settings |
 
-Hirkan uses grouped navigation, circular resource gauges, a unified page toolbar, structured tables and consistent dialog surfaces. The original default palette and existing management capabilities are preserved.
+Hirkan preserves the reference navigation, statistics, settings layout, descriptions and default palette. Subscription settings and configuration dialogs use coordinated card surfaces.
 
 <a id="installation"></a>
 ## Installation
@@ -58,7 +58,7 @@ UVICORN_SSL_KEYFILE=/var/lib/rasa-panel/certs/key.pem
 
 ```bash
 docker compose up -d --build
-docker compose exec rasa-panel python hirkan-cli.py generate-temp-key
+docker compose exec hirkan-panel python hirkan-cli.py generate-temp-key
 ```
 
 Open `https://YOUR_DOMAIN:8443/dashboard/`. Choose owner setup and use the temporary key to create the first owner. The key is a setup credential; keep it private.
@@ -103,17 +103,19 @@ Configure the public domain, port, transport and TLS/REALITY details in host and
 
 Client templates control subscription output. Device limits and subscription settings are managed from the existing settings pages. A domain still resolves to an address; using a domain does not hide the origin IP by itself.
 
-The default subscription web page, **Classic**, preserves the original upstream appearance independently of the Hirkan administration theme. For an existing installation set `SUBSCRIPTION_PAGE_TEMPLATE="subscription/classic.html"` in `.env`. If `CUSTOM_TEMPLATES_DIRECTORY` is configured, a same-named custom file takes precedence; preserve your custom template before replacing it. This setting controls the subscription web page, not client configuration formats or user links.
+The default subscription web page uses the Hirkan PNG identity, responsive account cards, configuration actions and application cards. Both bundled templates share the same Hirkan styling. For an existing installation set `SUBSCRIPTION_PAGE_TEMPLATE="subscription/classic.html"` in `.env`. If `CUSTOM_TEMPLATES_DIRECTORY` is configured, a same-named custom file takes precedence; preserve your custom template before replacing it. This setting controls the subscription web page, not client configuration formats or user links.
 
 <a id="updating"></a>
 ## Updating
+
+For installations using the previous Compose service name, stop the old container with `docker compose down` before replacing the source. The new service is `hirkan-panel`; keep `data/` and `.env`. The existing container data path is retained for database and certificate compatibility.
 
 Back up first and read [CHANGELOG.md](CHANGELOG.md). Preserve local changes before pulling.
 
 ```bash
 git pull --ff-only
 docker compose up -d --build
-docker compose logs --tail=100 rasa-panel
+docker compose logs --tail=100 hirkan-panel
 ```
 
 Use this repository for updates. Upstream installation scripts deploy upstream packages and do not update this branded distribution. Database migrations may prevent a simple image rollback; restore the matching database backup when rolling back a migration.
@@ -124,11 +126,11 @@ Use this repository for updates. Upstream installation scripts deploy upstream p
 For the default SQLite deployment, use a short maintenance window and stop the panel so the database and WAL files form a consistent copy:
 
 ```bash
-docker compose stop rasa-panel
+docker compose stop hirkan-panel
 umask 077
 mkdir -p backups
 tar -czf "backups/rasa-$(date -u +%Y%m%d-%H%M%S).tar.gz" data .env
-docker compose start rasa-panel
+docker compose start hirkan-panel
 ```
 
 If archiving fails, restart the panel and resolve the error before updating. Store backups off the server as well. Archives include private keys and settings. To restore, stop the panel, restore the matching archive into this project directory, then start the matching code version. External databases need their own database-native backup and restore procedure.
@@ -138,7 +140,7 @@ If archiving fails, restart the panel and resolve the error before updating. Sto
 
 | Symptom | Check |
 | --- | --- |
-| Container exits | `docker compose logs --tail=100 rasa-panel`; certificate paths, environment and port availability |
+| Container exits | `docker compose logs --tail=100 hirkan-panel`; certificate paths, environment and port availability |
 | Port already occupied | `sudo ss -lntp`; choose an available port and update the URL |
 | Certificate error | Domain matches the certificate, chain is complete, files are mounted at the configured paths |
 | Domain fails | DNS points to the intended endpoint and the configured port is reachable |

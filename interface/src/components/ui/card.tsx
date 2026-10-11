@@ -3,12 +3,12 @@ import * as React from 'react'
 import { cn } from '@/lib/utils'
 
 const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn('hirkan-card bg-card text-card-foreground rounded-[var(--radius)] border border-border/60 shadow-[var(--card-shadow)]', className)} {...props} />
+  <div ref={ref} className={cn('bg-card text-card-foreground rounded-xl border border-border/60 shadow-[var(--card-shadow)]', className)} {...props} />
 ))
 Card.displayName = 'Card'
 
 const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn('hirkan-card-header flex flex-col space-y-1.5 p-6', className)} {...props} />
+  <div ref={ref} className={cn('flex flex-col space-y-1.5 p-6', className)} {...props} />
 ))
 CardHeader.displayName = 'CardHeader'
 

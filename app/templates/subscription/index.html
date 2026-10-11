@@ -1,7 +1,11 @@
+{% autoescape true %}
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{ user.username }} - Subscription Information</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="/statics/fonts/fonts.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Hirkan · {{ user.username }}</title>
         <style>
             * {
                 margin: 0;
@@ -533,6 +537,7 @@
                     margin-bottom: 8px;
                 }
             }
+        {% include 'subscription/hirkan.css' %}
         </style>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script defer>
@@ -542,17 +547,17 @@
 
     <body>
         <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
-            <span id="theme-icon">🌙</span>
+            <span id="theme-icon">◐</span>
         </button>
 
         <div class="container">
-            <h1>Subscription Information</h1>
+            <header class="hirkan-brand"><img src="/statics/favicon/logo-dark.png" alt="Hirkan" width="52" height="52" /><div><strong>Hirkan</strong><h1>Subscription Information</h1></div></header>
 
             {% if announce %}
             <div class="announcement">
-                <span>{{ announce | replace('\n', '<br>') }}</span>
+                <span>{{ announce }}</span>
                 {% if announce_url %}
-                <a href="{{ announce_url }}" target="_blank">More info</a>
+                <a href="{{ announce_url }}" target="_blank" rel="noopener noreferrer">More info</a>
                 {% endif %}
             </div>
             {% endif %}
@@ -602,7 +607,7 @@
                     <input type="text" class="link-input" value="{{ link }}" readonly />
                     <button
                         class="copy-button"
-                        onclick="copyLink('{{ link }}', this)"
+                        onclick="copyLink(this.parentElement.querySelector('.link-input').value, this)"
                     >
                         Copy
                     </button>
@@ -644,13 +649,13 @@
                     <ul>
                         {% for link in app.download_links %}
                         {% if link.language.value == 'en' %}
-                        <li><a href="{{ link.url }}" target="_blank">{{ link.name }}</a></li>
+                        <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.name }}</a></li>
                         {% endif %}
                         {% endfor %}
                     </ul>
                     {% endif %}
                     {% if app.import_url %}
-                    <button onclick="importConfig('{{ app.import_url }}')">Import Config</button>
+                    <button data-import-url="{{ app.import_url }}" onclick="importConfig(this.dataset.importUrl)">Import Config</button>
                     {% endif %}
                 </div>
                 {% endfor %}
@@ -658,9 +663,9 @@
             {% endif %}
         </div>
 
-        <div class="qr-popup" id="qrPopup">
+        <div class="qr-popup" id="qrPopup" role="dialog" aria-modal="true" aria-label="QR Code">
             <div class="qr-close-button">
-                <button onclick="closeQrPopup()">×</button>
+                <button aria-label="Close QR code" onclick="closeQrPopup()">×</button>
             </div>
             <div id="qrCodeContainer"></div>
         </div>
@@ -674,12 +679,12 @@
                 if (body.classList.contains('light')) {
                     body.classList.remove('light');
                     body.classList.add('dark');
-                    themeIcon.textContent = '☀️';
+                    themeIcon.textContent = '◑';
                     localStorage.setItem('theme', 'dark');
                 } else {
                     body.classList.remove('dark');
                     body.classList.add('light');
-                    themeIcon.textContent = '🌙';
+                    themeIcon.textContent = '◐';
                     localStorage.setItem('theme', 'light');
                 }
             }
@@ -691,10 +696,10 @@
                 // Default to dark mode
                 if (savedTheme === 'light') {
                     document.body.classList.add('light');
-                    document.getElementById('theme-icon').textContent = '🌙';
+                    document.getElementById('theme-icon').textContent = '◐';
                 } else {
                     document.body.classList.add('dark');
-                    document.getElementById('theme-icon').textContent = '☀️';
+                    document.getElementById('theme-icon').textContent = '◑';
                 }
             });
 
@@ -735,6 +740,8 @@
 
             const qrButtons = document.querySelectorAll(".qr-button");
             const qrPopup = document.getElementById("qrPopup");
+            const qrCodeContainer = document.getElementById("qrCodeContainer");
+            document.addEventListener("keydown", event => { if (event.key === "Escape") closeQrPopup(); });
 
             qrButtons.forEach((qrButton) => {
                 qrButton.addEventListener("click", () => {
@@ -749,6 +756,7 @@
                         correctLevel: QRCode.CorrectLevel.L,
                     });
                     qrPopup.style.display = "block";
+                    qrPopup.querySelector('button').focus();
                 });
             });
             function closeQrPopup() {
@@ -756,8 +764,10 @@
             }
 
             function importConfig(url) {
-                window.open(url, '_blank');
+                window.open(url, '_blank', 'noopener,noreferrer');
             }
         </script>
     </body>
 </html>
+
+{% endautoescape %}

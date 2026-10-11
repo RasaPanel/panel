@@ -8,7 +8,7 @@ import { getAuthToken } from '@/utils/authStorage'
 
 const DONATION_STORAGE_KEY = 'donation_popup_data'
 const FIRST_SHOW_DELAY = 10 * 60 * 1000 // 10 minutes in milliseconds
-const SECRET_SALT = 'pasarguard_donation_v1' // Simple salt for checksum
+const SECRET_SALT = 'hirkan_donation_v1' // Simple salt for checksum
 const MAX_TIMEOUT_MS = 2_147_483_647 // Browser timeout limit (~24.8 days)
 const MODAL_BUSY_RETRY_MS = 2000 // Re-check interval while another dialog is open
 

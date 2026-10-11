@@ -1,6 +1,5 @@
 {
-  "rasa.welcome": "Welcome back, {{name}}",
-  "pasarguard": "Hirkan",
+  "hirkan": "Hirkan",
   "dashboard": "Dashboard",
   "master": "Overall",
   "dashboardDescription": "Hirkan Management Dashboard",
@@ -1745,7 +1744,7 @@
   "monitorServers": "Monitor your servers and users",
   "manageServers": "Control your server details",
   "nodes.addHostForEveryInbound": "Add this node as a new host for every inbound",
-  "nodes.addNewPasarGuardNode": "Create New Hirkan Node",
+  "nodes.addNewHirkanNode": "Create New Hirkan Node",
   "nodes.addNodeSuccess": "Node {{name}} created successfully",
   "nodes.apply": "modifyNode",
   "nodes.certificate": "Certificate",
@@ -1755,7 +1754,7 @@
   "nodes.nodePort": "Port",
   "nodes.reconnect": "Reconnect",
   "nodes.reconnecting": "Reconnecting...",
-  "nodes.title": "Using Hirkan Node, you are able to scale up your connection quality by creating different nodes on different servers.",
+  "nodes.title": "Using Hirkan-Node, you are able to scale up your connection quality by creating different nodes on different servers.",
   "nodes.usageCoefficient": "Usage Ratio",
   "on_hold": "On Hold",
   "duplicate": "Duplicate",
@@ -2337,8 +2336,7 @@
     "pink": "Pink",
     "previewBadge": "Live",
     "previewCard": "Secondary",
-    "previewMuted": "Usage",
-    "toggle": "Switch theme"
+    "previewMuted": "Usage"
   },
   "coreConfigModal": {
     "addConfig": "Create Core Configuration",
@@ -3774,8 +3772,5 @@
     "updateCommandLabel": "Connect via SSH and run:",
     "closeBanner": "Close update notification",
     "needsUpdate": "Needs update"
-  },
-  "hirkan.navigation.operations": "Operations",
-  "hirkan.navigation.infrastructure": "Infrastructure",
-  "hirkan.navigation.administration": "Administration"
+  }
 }

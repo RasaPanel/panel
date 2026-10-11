@@ -10,7 +10,6 @@ import { SubscriptionRulesSection } from '@/features/subscriptions/components/su
 import { SubscriptionSettingsSkeleton } from '@/features/subscriptions/components/subscription-settings-skeleton'
 import { subscriptionSchema, type SubscriptionApplicationFormData, type SubscriptionFormData, defaultSubscriptionRules, normalizeCustomVariablesForPayload } from '@/features/subscriptions/components/subscription-settings-schema'
 import { Form } from '@/components/ui/form'
-import { Separator } from '@/components/ui/separator'
 import { type SubRule as ApiSubRule } from '@/service/api'
 import { DragEndEvent, KeyboardSensor, PointerSensor, useSensor, useSensors } from '@dnd-kit/core'
 import { sortableKeyboardCoordinates } from '@dnd-kit/sortable'
@@ -356,19 +355,15 @@ export default function SubscriptionSettings() {
   return (
     <div className="w-full">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit, onInvalid)} className="space-y-6 p-4 sm:space-y-8 sm:py-6 lg:space-y-10 lg:py-8">
-          <SubscriptionGeneralSettingsSection form={form} />
-
-          <Separator className="my-3" />
+        <form onSubmit={form.handleSubmit(onSubmit, onInvalid)} className="hirkan-sub-settings space-y-5 p-1 sm:p-2">
+          <section className="hirkan-sub-section"><SubscriptionGeneralSettingsSection form={form} /></section>
 
           <div className="space-y-6 lg:grid lg:grid-cols-2 lg:items-start lg:gap-8 lg:space-y-0">
-            <SubscriptionCustomVariablesSection form={form} />
-            <Separator className="my-3 lg:hidden" />
-            <SubscriptionResponseHeadersSection form={form} />
+            <section className="hirkan-sub-section"><SubscriptionCustomVariablesSection form={form} /></section>
+            <section className="hirkan-sub-section"><SubscriptionResponseHeadersSection form={form} /></section>
           </div>
 
-          <Separator className="my-3" />
-
+          <section className="hirkan-sub-section">
           <SubscriptionRulesSection
             form={form}
             ruleFields={ruleFields}
@@ -379,9 +374,9 @@ export default function SubscriptionSettings() {
             onRemoveRule={removeRule}
             isSaving={isSaving}
           />
+          </section>
 
-          <Separator className="my-3" />
-
+          <section className="hirkan-sub-section">
           <SubscriptionApplicationsSection
             form={form}
             applicationFields={applicationFields}
@@ -391,10 +386,9 @@ export default function SubscriptionSettings() {
             onAddApplication={addApplication}
             onRemoveApplication={removeApplication}
           />
+          </section>
 
-          <Separator className="my-3" />
-
-          <SubscriptionManualFormatsSection form={form} />
+          <section className="hirkan-sub-section"><SubscriptionManualFormatsSection form={form} /></section>
 
           <SubscriptionFormActions onCancel={handleCancel} isSaving={isSaving} />
         </form>

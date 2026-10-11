@@ -223,10 +223,10 @@ export default function Settings() {
       <div className="flex w-full flex-col items-start gap-0">
         <PageHeader title={t(`settings.${activeTab}.title`)} description="manageSettings" />
 
-        <div className="relative w-full px-4 py-4 md:px-6">
+        <div className="relative w-full">
           <div className="flex">
-            <div className="grid w-full min-w-0 gap-4 lg:grid-cols-[13rem_minmax(0,1fr)]">
-              <div className="hirkan-section-nav scrollbar-hide flex h-fit gap-1 overflow-x-auto rounded-[var(--radius)] border bg-card p-2 lg:flex-col">
+            <div className="w-full">
+              <div className="scrollbar-hide flex overflow-x-auto border-b px-4 lg:flex-wrap">
                 {tabs.map(tab => {
                   const isActive = activeTab === tab.id
                   return (
@@ -234,8 +234,8 @@ export default function Settings() {
                       key={tab.id}
                       onClick={() => navigate(tab.url)}
                       className={cn(
-                        'relative flex-shrink-0 rounded-md px-3 py-2.5 text-start text-sm font-medium whitespace-nowrap transition-colors',
-                        isActive ? 'bg-primary/10 text-primary shadow-[inset_0_-2px_hsl(var(--primary))]' : 'text-muted-foreground hover:text-foreground',
+                        'relative flex-shrink-0 px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors',
+                        isActive ? 'border-primary text-foreground border-b-2' : 'text-muted-foreground hover:text-foreground',
                       )}
                     >
                       <div className="flex items-center gap-1.5">
@@ -246,7 +246,7 @@ export default function Settings() {
                   )
                 })}
               </div>
-              <div className="min-w-0">
+              <div>
                 <Outlet />
               </div>
             </div>

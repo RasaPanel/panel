@@ -48,7 +48,7 @@ UVICORN_SSL_KEYFILE=/var/lib/rasa-panel/certs/key.pem
 
 ```bash
 docker compose up -d --build
-docker compose exec rasa-panel python hirkan-cli.py generate-temp-key
+docker compose exec hirkan-panel python hirkan-cli.py generate-temp-key
 ```
 
 آدرس `https://YOUR_DOMAIN:8443/dashboard/` را باز کنید؛ به‌جای `YOUR_DOMAIN` دامنهٔ خودتان را بگذارید. از بخش راه‌اندازی مالک، با کلید موقت حساب مالک را بسازید. کلید موقت را خصوصی نگه دارید.
@@ -93,7 +93,7 @@ docker compose exec rasa-panel python hirkan-cli.py generate-temp-key
 
 قالب کلاینت خروجی اشتراک را تعیین می‌کند. استفاده از دامنه به‌تنهایی آی‌پی مبدأ را پنهان نمی‌کند؛ دامنه همچنان به یک آدرس resolve می‌شود.
 
-قالب پیش‌فرض صفحهٔ اشتراک، **Classic**، همان ظاهر اصلی پاسارگارد را دارد و از تم مدیریتی هیرکان مستقل است. برای فعال‌کردن آن در نصب قبلی، در `.env` مقدار `SUBSCRIPTION_PAGE_TEMPLATE="subscription/classic.html"` را قرار دهید. اگر `CUSTOM_TEMPLATES_DIRECTORY` دارید، فایل هم‌نام در آن پوشه بر قالب داخلی اولویت دارد؛ قالب سفارشی را پیش از جایگزینی حفظ کنید. این گزینه، ظاهر صفحهٔ وب اشتراک را تغییر می‌دهد؛ فرمت کانفیگ کلاینت و لینک‌های کاربران را تغییر نمی‌دهد.
+صفحهٔ اشتراک با لوگوی PNG هیرکان، کارت‌های اطلاعات حساب، لینک‌های کانفیگ و برنامه‌ها بازطراحی شده است. هر دو قالب داخلی ظاهر هماهنگ هیرکان دارند. برای فعال‌کردن آن در نصب قبلی، در `.env` مقدار `SUBSCRIPTION_PAGE_TEMPLATE="subscription/classic.html"` را قرار دهید. اگر `CUSTOM_TEMPLATES_DIRECTORY` دارید، فایل هم‌نام در آن پوشه بر قالب داخلی اولویت دارد؛ قالب سفارشی را پیش از جایگزینی حفظ کنید. این گزینه، ظاهر صفحهٔ وب اشتراک را تغییر می‌دهد؛ فرمت کانفیگ کلاینت و لینک‌های کاربران را تغییر نمی‌دهد.
 
 <a id="updating"></a>
 ## آپدیت
@@ -103,7 +103,7 @@ docker compose exec rasa-panel python hirkan-cli.py generate-temp-key
 ```bash
 git pull --ff-only
 docker compose up -d --build
-docker compose logs --tail=100 rasa-panel
+docker compose logs --tail=100 hirkan-panel
 ```
 
 آپدیت را از مخزن هیرکان دریافت کنید. اسکریپت نصب پروژهٔ اصلی، بسته‌های همان پروژه را نصب می‌کند. پس از مهاجرت دیتابیس، بازگشت صرفاً به تصویر قبلی ممکن است کافی نباشد؛ برای بازگشت، نسخهٔ سورس و بکاپ دیتابیس باید با هم سازگار باشند.
@@ -114,11 +114,11 @@ docker compose logs --tail=100 rasa-panel
 برای SQLite، در یک بازهٔ کوتاه نگهداری پنل را متوقف کنید تا دیتابیس و فایل‌های WAL به‌صورت سازگار ذخیره شوند:
 
 ```bash
-docker compose stop rasa-panel
+docker compose stop hirkan-panel
 umask 077
 mkdir -p backups
 tar -czf "backups/rasa-$(date -u +%Y%m%d-%H%M%S).tar.gz" data .env
-docker compose start rasa-panel
+docker compose start hirkan-panel
 ```
 
 اگر آرشیو ساخته نشد، پنل را دوباره اجرا و خطا را پیش از آپدیت رفع کنید. یک نسخه از بکاپ را خارج سرور نگه دارید. آرشیو شامل تنظیمات و کلیدهای خصوصی است. برای بازیابی، پنل را متوقف کنید، آرشیو سازگار را در پوشهٔ پروژه برگردانید و نسخهٔ متناظر را اجرا کنید. دیتابیس خارجی به روش بکاپ و بازیابی مخصوص خودش نیاز دارد.
@@ -128,7 +128,7 @@ docker compose start rasa-panel
 
 | مشکل | بررسی |
 | --- | --- |
-| کانتینر اجرا نمی‌شود | `docker compose logs --tail=100 rasa-panel`، مسیر گواهی، متغیرها و پورت |
+| کانتینر اجرا نمی‌شود | `docker compose logs --tail=100 hirkan-panel`، مسیر گواهی، متغیرها و پورت |
 | پورت اشغال است | `sudo ss -lntp`؛ پورت آزاد انتخاب و آدرس ورود را اصلاح کنید |
 | خطای گواهی | تطابق دامنه، کامل بودن زنجیره و مسیر فایل داخل کانتینر |
 | دامنه باز نمی‌شود | رکورد DNS و دسترسی به پورت تنظیم‌شده |

@@ -130,12 +130,12 @@ const Settings = () => {
       )}
       <div className="flex min-h-0 w-full flex-1 flex-col">
         {!isCoreEditorPage && (
-          <div className="hirkan-section-nav scrollbar-hide mx-4 my-3 flex gap-1 overflow-x-auto rounded-[var(--radius)] border bg-card p-1 lg:flex-wrap">
+          <div className="scrollbar-hide flex overflow-x-auto border-b px-4 lg:flex-wrap">
             {visibleTabs.map(tab => (
               <button
                 key={tab.id}
                 onClick={() => navigate(tab.url)}
-                className={`relative flex-shrink-0 rounded-md px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors ${
+                className={`relative flex-shrink-0 px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors ${
                   activeTab === tab.id ? 'border-primary text-foreground border-b-2' : 'text-muted-foreground hover:text-foreground'
                 }`}
               >

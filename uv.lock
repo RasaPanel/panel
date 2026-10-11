@@ -802,7 +802,7 @@ wheels = [
 ]
 
 [[package]]
-name = "rasa-panel"
+name = "hirkan-panel"
 version = "5.4.1"
 source = { virtual = "." }
 dependencies = [
