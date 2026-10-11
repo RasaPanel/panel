@@ -109,7 +109,7 @@ const Dashboard = () => {
 
       <div className="w-full px-3 pt-2 sm:px-4">
         <div className="flex flex-col gap-4 sm:gap-6">
-          <div className="rasa-overview-toolbar flex flex-wrap items-center justify-between gap-3">
+          <div className="hirkan-overview-toolbar flex flex-wrap items-center justify-between gap-3">
             <h2 className="text-sm font-semibold">{t('statistics.system')}</h2>
             <div className="flex flex-wrap items-center gap-2">
               {hasPermission(currentAdmin, 'users', 'read') && (

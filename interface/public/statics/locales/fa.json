@@ -1,9 +1,9 @@
 {
   "rasa.welcome": "خوش آمدی، {{name}}",
-  "pasarguard": "رسا پنل",
+  "pasarguard": "هیرکان",
   "dashboard": "داشبورد",
   "master": "کلی",
-  "dashboardDescription": "داشبورد مدیریت رسا پنل",
+  "dashboardDescription": "داشبورد مدیریت هیرکان",
   "default": "پیش‌فرض",
   "unlimited": "نامحدود",
   "active": "فعال",
@@ -1569,7 +1569,7 @@
   "monitorServers": "نظارت بر سرورها و کاربران شما",
   "manageServers": "کنترل جزئیات سرور شما",
   "nodes.addHostForEveryInbound": "استفاده از این گره به عنوان هاست تمام ورودی‌ها",
-  "nodes.addNewPasarGuardNode": "افزودن گره رسا پنل",
+  "nodes.addNewPasarGuardNode": "افزودن گره هیرکان",
   "nodes.addNode": "افزودن گره",
   "nodes.addNodeSuccess": "گره {{name}} با موفقیت افزوده شد",
   "nodes.apply": "ویرایش گره",
@@ -2254,7 +2254,8 @@
     "pink": "صورتی",
     "previewBadge": "زنده",
     "previewCard": "ثانویه",
-    "previewMuted": "مصرف"
+    "previewMuted": "مصرف",
+    "toggle": "تغییر تم"
   },
   "coreConfigModal": {
     "addConfig": "افزودن پیکربندی هسته",
@@ -3689,8 +3690,8 @@
   "hosts.filters.enabledHosts": "هاست‌های فعال",
   "hosts.filters.disabledHosts": "هاست‌های غیرفعال",
   "donation": {
-    "title": "حمایت از رسا پنل",
-    "message": "حمایت شما به ما کمک می‌کند تا رسا پنل را بهبود بخشیم و ویژگی‌های بهتری برای همه بسازیم!",
+    "title": "حمایت از هیرکان",
+    "message": "حمایت شما به ما کمک می‌کند تا هیرکان را بهبود بخشیم و ویژگی‌های بهتری برای همه بسازیم!",
     "donate": "حمایت مالی",
     "starOnGitHub": "ستاره در GitHub"
   },
@@ -3749,5 +3750,8 @@
     "updateCommandLabel": "از طریق SSH متصل شوید و اجرا کنید:",
     "closeBanner": "بستن اعلان به‌روزرسانی",
     "needsUpdate": "نیاز به به‌روزرسانی"
-  }
+  },
+  "hirkan.navigation.operations": "مدیریت و آمار",
+  "hirkan.navigation.infrastructure": "زیرساخت و اشتراک",
+  "hirkan.navigation.administration": "مدیریت سیستم"
 }

@@ -158,8 +158,8 @@ export default defineConfig({
       registerType: 'prompt',
       injectRegister: false,
       manifest: {
-        name: 'Rasa Panel | رسا پنل',
-        short_name: 'Rasa Panel',
+        name: 'Hirkan | هیرکان',
+        short_name: 'Hirkan',
         theme_color: '#1b1b1d',
         background_color: '#1b1b1d',
         display: 'standalone',

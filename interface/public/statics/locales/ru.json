@@ -1,9 +1,9 @@
 {
   "rasa.welcome": "Добро пожаловать, {{name}}",
-  "pasarguard": "Rasa Panel",
+  "pasarguard": "Hirkan",
   "dashboard": "Панель управления",
   "master": "Общее",
-  "dashboardDescription": "Панель управления Rasa Panel",
+  "dashboardDescription": "Панель управления Hirkan",
   "default": "По умолчанию",
   "unlimited": "Без ограничений",
   "active": "активный",
@@ -1248,7 +1248,7 @@
   "monitorServers": "Следите за своими серверами и пользователями",
   "manageServers": "Управляйте данными вашего сервера",
   "nodes.addHostForEveryInbound": "Добавить этот узел, как новый хост для каждого inbound",
-  "nodes.addNewPasarGuardNode": "Добавить новый узел Rasa Panel",
+  "nodes.addNewPasarGuardNode": "Добавить новый узел Hirkan",
   "nodes.addNode": "Добавить узел",
   "nodes.addNodeSuccess": "Узел {{name}} успешно добавлен",
   "nodes.apply": "Настройки узла успешно обновлены",
@@ -1256,7 +1256,7 @@
   "nodes.certificateCopied": "Сертификат скопирован в буфер обмена",
   "nodes.certificateDownloaded": "Сертификат успешно загружен",
   "nodes.certificateDescription": "Для настройки узла необходимо настроить этот сертификат для установления безопасного соединения между основным сервером и узлом",
-  "nodes.connection-hint": "Для настройки узла Rasa Panel, необходимо установить на нём данный сертификат, для инициализации безопасного соединения между главным сервером и узлом",
+  "nodes.connection-hint": "Для настройки узла Hirkan, необходимо установить на нём данный сертификат, для инициализации безопасного соединения между главным сервером и узлом",
   "nodes.download-certificate": "Скачать сертификат",
   "nodes.editNode": "Редактировать узел",
   "nodes.hide-certificate": "Скрыть сертификат",
@@ -1267,7 +1267,7 @@
   "nodes.reconnect": "Переподключиться",
   "nodes.reconnecting": "Переподключение...",
   "nodes.show-certificate": "Показать сертификат",
-  "nodes.title": "Используя Rasa Node, Вы можете масштабировать инфраструктуру, добавляя узлы на разных серверах.",
+  "nodes.title": "Используя Hirkan Node, Вы можете масштабировать инфраструктуру, добавляя узлы на разных серверах.",
   "nodes.usageCoefficient": "Коэффициент использования",
   "on_hold": "В ожидании",
   "duplicate": "Дублировать",
@@ -2230,7 +2230,8 @@
     "pink": "Розовый",
     "previewBadge": "Живой",
     "previewCard": "Дополнительная",
-    "previewMuted": "Использование"
+    "previewMuted": "Использование",
+    "toggle": "Switch theme"
   },
   "coreConfigModal": {
     "addConfig": "Добавить конфигурацию ядра",
@@ -3659,8 +3660,8 @@
   "hosts.filters.enabledHosts": "Включенные хосты",
   "hosts.filters.disabledHosts": "Отключенные хосты",
   "donation": {
-    "title": "Поддержите Rasa Panel",
-    "message": "Ваша поддержка помогает нам улучшать Rasa Panel и создавать лучшие функции для всех!",
+    "title": "Поддержите Hirkan",
+    "message": "Ваша поддержка помогает нам улучшать Hirkan и создавать лучшие функции для всех!",
     "donate": "Поддержать проект",
     "starOnGitHub": "Поставить звезду на GitHub"
   },
@@ -3734,5 +3735,8 @@
     "updateCommandLabel": "Выполните через SSH:",
     "closeBanner": "Закрыть уведомление об обновлении",
     "needsUpdate": "Требуется обновление"
-  }
+  },
+  "hirkan.navigation.operations": "Operations",
+  "hirkan.navigation.infrastructure": "Infrastructure",
+  "hirkan.navigation.administration": "Administration"
 }

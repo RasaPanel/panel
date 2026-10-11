@@ -1,5 +1,13 @@
 # Validation — 2026-10-11
 
+## Hirkan workspace
+
+- Clean production build passed. Strict TypeScript has the same 26 baseline diagnostics; none added by this update.
+- Subscription regression tests: 9 passed. Python compilation and Hirkan CLI help passed.
+- Chromium with synthetic API data: dashboard, user table/create dialog, nodes, hosts, groups, admins, roles, API keys, user/client templates, bulk operations and theme/subscription settings. Desktop and mobile viewport overflow checks passed, including the settings navigation.
+- Original default palette matches upstream. Backend schema, subscription formats, volume paths and permission rules unchanged.
+- Full backend suite and live server deployment were not repeated for this visual/branding update.
+
 ## Hybrid dashboard and Classic subscription
 
 - Frontend production build passed; strict TypeScript diagnostics remain at the 26-error baseline, with no new diagnostics.

@@ -5,10 +5,10 @@ import type { LucideIcon } from 'lucide-react'
 
 export default function ResourceGaugeCard({ label, icon: Icon, value, detail, loading }: { label: string; icon: LucideIcon; value: number; detail: string; loading: boolean }) {
   return (
-    <Card className="rasa-resource-gauge h-full">
+    <Card className="hirkan-resource-gauge h-full">
       <CardContent className="p-4 sm:p-5">
         <div className="flex items-center gap-2 text-sm font-medium">
-          <span className="rasa-gauge-icon">
+          <span className="hirkan-gauge-icon">
             <Icon className="h-4 w-4" />
           </span>
           <span>{label}</span>

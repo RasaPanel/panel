@@ -455,47 +455,45 @@
   }
 }
 
-/* Rasa identity keeps the original component layout and theme controls. */
+/* Shared Hirkan workspace surfaces. */
 @layer base {
-  .dark img[alt='Rasa Panel Logo'] {
-    filter: invert(1);
-  }
-  img[alt='Rasa Panel Logo'] {
+
+  img[alt='Hirkan Logo'] {
     object-fit: contain;
   }
 }
-.rasa-workspace {
+.hirkan-workspace {
   background: hsl(var(--background));
 }
-.rasa-card {
+.hirkan-card {
   border-color: hsl(var(--border) / 0.7);
   box-shadow: 0 2px 12px -8px hsl(var(--foreground) / 0.14);
 }
-.rasa-page-header {
+.hirkan-page-header {
   border-bottom: 1px solid hsl(var(--border) / 0.4);
 }
-.rasa-sidebar-header {
+.hirkan-sidebar-header {
   margin: 0.45rem 0.35rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid hsl(var(--sidebar-border) / 0.6);
 }
-.rasa-sidebar [data-sidebar='menu-button'][data-active='true'] {
+.hirkan-sidebar [data-sidebar='menu-button'][data-active='true'] {
   background: hsl(var(--primary) / 0.12);
   color: hsl(var(--primary));
   box-shadow: inset 3px 0 0 hsl(var(--primary));
   font-weight: 600;
 }
-[dir='rtl'] .rasa-sidebar [data-sidebar='menu-button'][data-active='true'] {
+[dir='rtl'] .hirkan-sidebar [data-sidebar='menu-button'][data-active='true'] {
   box-shadow: inset -3px 0 0 hsl(var(--primary));
 }
-.rasa-sidebar [data-sidebar='menu-sub-button'][data-active='true'] {
+.hirkan-sidebar [data-sidebar='menu-sub-button'][data-active='true'] {
   background: hsl(var(--primary) / 0.1);
   color: hsl(var(--primary));
 }
-.rasa-login {
+.hirkan-login {
   background: hsl(var(--background));
 }
-.rasa-login-panel {
+.hirkan-login-panel {
   border: 1px solid hsl(var(--border) / 0.65);
   border-top: 2px solid hsl(var(--primary));
   border-radius: calc(var(--radius) + 0.3rem);
@@ -503,13 +501,13 @@
   box-shadow: 0 16px 48px -30px hsl(var(--foreground) / 0.25);
 }
 @media (prefers-reduced-motion: reduce) {
-  .rasa-workspace {
+  .hirkan-workspace {
     scroll-behavior: auto;
   }
 }
 
 /* Small composition accents; keep forms and content density unchanged. */
-.rasa-heading-icon {
+.hirkan-heading-icon {
   width: 2.75rem;
   height: 2.75rem;
   border-radius: var(--radius);
@@ -517,28 +515,28 @@
   background: hsl(var(--primary) / 0.1);
   border: 1px solid hsl(var(--primary) / 0.15);
 }
-.rasa-sidebar-header {
+.hirkan-sidebar-header {
   border-radius: var(--radius);
   background: hsl(var(--primary) / 0.035);
   padding: 0.5rem;
 }
-.rasa-table thead {
+.hirkan-table thead {
   background: hsl(var(--primary) / 0.045);
 }
-.rasa-table tbody tr:nth-child(even) {
+.hirkan-table tbody tr:nth-child(even) {
   background: hsl(var(--muted) / 0.18);
 }
-.rasa-table tbody tr:hover {
+.hirkan-table tbody tr:hover {
   background: hsl(var(--primary) / 0.065);
 }
-.rasa-table tbody tr[data-state='selected'] {
+.hirkan-table tbody tr[data-state='selected'] {
   background: hsl(var(--primary) / 0.12);
 }
 
-.rasa-resource-gauge {
+.hirkan-resource-gauge {
   border-top: 2px solid hsl(var(--primary) / 0.5);
 }
-.rasa-gauge-icon {
+.hirkan-gauge-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -548,6 +546,48 @@
   color: hsl(var(--primary));
   background: hsl(var(--primary) / 0.1);
 }
-.rasa-overview-toolbar {
+.hirkan-overview-toolbar {
   padding-block: 0.5rem;
+}
+
+/* Layout accents use the selected theme variables, including the original palette. */
+.hirkan-workspace { min-width: 0; }
+.hirkan-sidebar [data-sidebar='group'] { padding: 0.65rem 0.75rem; }
+.hirkan-sidebar [data-sidebar='group-label'] {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: hsl(var(--muted-foreground));
+}
+.hirkan-sidebar [data-sidebar='menu-button'] { border-radius: var(--radius); min-height: 2.4rem; }
+.hirkan-sidebar [data-sidebar='menu-sub'] { margin-inline: 0.7rem; }
+.hirkan-sidebar [data-sidebar='footer'] { border-top: 1px solid hsl(var(--border) / 0.6); }
+.hirkan-sidebar-header img, .hirkan-logo, img[alt='Hirkan Logo'] {
+  border-radius: 0.4rem;
+  background: #050505;
+  object-fit: contain;
+}
+.hirkan-page-header { margin-block-end: 0.35rem; border-bottom: 1px solid hsl(var(--border) / 0.7); }
+.hirkan-heading-icon { border: 1px solid hsl(var(--primary) / 0.15); border-radius: var(--radius); }
+.hirkan-header-actions { display: flex; justify-content: flex-end; }
+.hirkan-card { overflow-wrap: anywhere; border-radius: var(--radius); }
+.hirkan-table-container { border: 1px solid hsl(var(--border) / 0.65); border-radius: var(--radius); }
+.hirkan-table thead { background: hsl(var(--muted) / 0.6); }
+.hirkan-table th { font-weight: 600; height: 2.8rem; padding-inline: 0.75rem; }
+.hirkan-table td { padding: 0.65rem 0.75rem; }
+.hirkan-table tbody tr { border-bottom-color: hsl(var(--border) / 0.45); }
+.hirkan-tabs-list { gap: 0.2rem; padding: 0.25rem; border: 1px solid hsl(var(--border) / 0.65); border-radius: var(--radius); }
+.hirkan-tabs-trigger[data-state='active'] { box-shadow: inset 0 -2px hsl(var(--primary)); color: hsl(var(--primary)); }
+.hirkan-dialog { border-radius: calc(var(--radius) + 0.15rem); border-top: 2px solid hsl(var(--primary)); }
+.hirkan-dialog-header { padding-bottom: 0.9rem; border-bottom: 1px solid hsl(var(--border) / 0.6); }
+.hirkan-dialog-footer { padding-top: 0.9rem; border-top: 1px solid hsl(var(--border) / 0.6); }
+.hirkan-input { transition: border-color 150ms, box-shadow 150ms; }
+.hirkan-input:focus-visible { border-color: hsl(var(--primary)); }
+@media (min-width: 1024px) {
+  .hirkan-workspace { padding-inline: 0.4rem; }
+  .hirkan-sidebar [data-sidebar='content'] { padding-top: 0.25rem; }
+}
+@media (max-width: 639px) {
+  .hirkan-header-actions > button, .hirkan-header-actions > [data-state] { width: 100%; }
+  .hirkan-table th, .hirkan-table td { padding-inline: 0.5rem; }
 }

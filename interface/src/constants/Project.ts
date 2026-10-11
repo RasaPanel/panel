@@ -1,7 +1,7 @@
-// Set these after creating the Rasa repositories. Empty services do not contact upstream.
+// Live repository URLs are kept until the organization is renamed.
 export const BRAND: Record<string, string> = {
-  name: 'Rasa Panel',
-  nameFa: 'رسا پنل',
+  name: 'Hirkan',
+  nameFa: 'هیرکان',
   repository: 'https://github.com/RasaPanel/panel',
   organization: 'https://github.com/RasaPanel',
   nodeRepository: '',

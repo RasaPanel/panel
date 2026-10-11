@@ -3,7 +3,7 @@ import i18n from '@/locales/i18n'
 
 /**
  * Generates a documentation URL for a given page path
- * Uses the Rasa repository guide until a dedicated documentation site is set.
+ * Uses the project repository guide until a dedicated documentation site is set.
  *
  * @param pagePath - The page path (e.g., '/settings', '/users', '/nodes/cores')
  * @returns The full documentation URL

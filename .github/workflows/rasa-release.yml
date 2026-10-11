@@ -1,4 +1,4 @@
-name: Rasa GHCR image
+name: Hirkan GHCR image
 on:
   workflow_dispatch:
   release:

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SERVICE_NAME="rasa-panel"
-SERVICE_DESCRIPTION="Rasa Panel Service"
+SERVICE_DESCRIPTION="Hirkan Service"
 SERVICE_DOCUMENTATION="${RASA_REPOSITORY_URL:-}"
 MAIN_PY_PATH="$PWD/main.py"
 SERVICE_FILE="/etc/systemd/system/$SERVICE_NAME.service"

@@ -34,7 +34,7 @@ export default function DashboardLayout() {
         <CommandPalette />
         <div className="flex w-full flex-col lg:flex-row">
           <AppSidebar />
-          <SidebarInset className="rasa-workspace dashboard-scroll scroll-smooth">
+          <SidebarInset className="hirkan-workspace dashboard-scroll scroll-smooth">
             <TopbarAd />
             <VersionUpdateBanner />
             <div className="flex min-h-0 w-full flex-1 flex-col justify-between gap-y-4">

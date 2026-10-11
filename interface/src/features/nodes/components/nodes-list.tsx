@@ -772,7 +772,7 @@ export default function NodesList() {
                   <p className="text-muted-foreground mx-auto max-w-2xl">
                     {t('nodes.noNodesDescription')}{' '}
                     <a href={BRAND.nodeRepository || '#'} target="_blank" rel="noopener noreferrer" className="text-primary font-medium underline-offset-4 hover:underline">
-                      Rasa Node
+                      Hirkan Node
                     </a>{' '}
                     {t('nodes.noNodesDescription2', { defaultValue: 'and connect it to the panel.' })}
                   </p>

@@ -123,7 +123,7 @@ function accentOverlay(name: string, lightPrimary: string, lightFg: string, dark
 }
 
 export const baseColors: Record<BaseColor, ColorThemeConfig> = {
-  default: basePalette('Rasa', 215, 8, 12, '172 66% 28%', '0 0% 100%', '172 64% 52%', '216 35% 9%'),
+  default: basePalette('Neutral', 240, 5, 2, '216 46% 40%', '240 5% 98%', '216 46% 53%', '0 0% 5%'),
   zinc: basePalette('Zinc', 240, 6, 3, '240 6% 10%', '0 0% 98%', '0 0% 98%', '240 6% 10%'),
   slate: basePalette('Slate', 215, 14, 8, '222 47% 11%', '210 40% 98%', '210 40% 98%', '222 47% 11%'),
   stone: basePalette('Stone', 30, 6, 4, '24 10% 10%', '60 9% 98%', '24 6% 83%', '24 10% 10%'),

@@ -1,13 +1,13 @@
-Rasa Panel — modified distribution, 2026-10-11.
+Hirkan — modified distribution, 2026-10-11.
 Based on PasarGuard/panel, commit b56ffe369f542152c52c69733205baeaf3f6e4cd.
 Upstream: https://github.com/PasarGuard/panel
 Copyright (C) 2025 PasarGuard organization and upstream contributors.
 Original LICENSE and dependency notices remain applicable.
-Changes: Rasa branding and supplied logo, configurable brand endpoints,
+Changes: Hirkan branding and supplied logo, configurable brand endpoints,
 subtle visual adjustments, interface module relocation, local Docker image,
-Rasa CLI/service names and deployment instructions.
+Compatible CLI/service names and deployment instructions.
 No claim of exclusive authorship of the upstream code is made.
 Distributed under the existing GNU Affero General Public License v3.
 When serving a modified version over a network, provide its corresponding
-source to users as required by the license. Configure the Rasa source URL
+source to users as required by the license. Configure the source URL
 before deployment. External node/core libraries retain their own names.

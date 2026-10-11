@@ -1113,7 +1113,7 @@ const HostModal: React.FC<HostModalProps> = ({ isDialogOpen, onOpenChange, onSub
                       <CustomVariablesPopover />
                     </div>
                     <FormControl>
-                      <Input placeholder="Remark (e.g. Rasa-Host)" isError={!!form.formState.errors.remark} {...field} />
+                      <Input placeholder="Remark (e.g. Hirkan-Host)" isError={!!form.formState.errors.remark} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

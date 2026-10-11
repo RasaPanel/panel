@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="interface/public/statics/favicon/logo-dark.png" width="112" alt="Rasa Panel logo">
+  <img src="interface/public/statics/favicon/logo-dark.png" width="112" alt="Hirkan logo">
 </p>
-<h1 align="center">Rasa Panel</h1>
+<h1 align="center">Hirkan</h1>
 <p align="center"><strong>A unified dashboard for users, proxy nodes and subscriptions</strong></p>
 <p align="center">
   <a href="README-fa.md">فارسی</a> · <a href="#installation">Installation</a> · <a href="#features">Features</a> · <a href="https://t.me/dev_vexel">Support</a>
@@ -10,10 +10,10 @@
   <a href="LICENSE"><img alt="License: AGPL v3" src="https://img.shields.io/badge/license-AGPL_v3-315fa8?style=flat-square"></a>
   <img alt="Python 3.14+" src="https://img.shields.io/badge/Python-3.14+-315fa8?style=flat-square">
   <img alt="React interface" src="https://img.shields.io/badge/interface-React-315fa8?style=flat-square">
-  <a href="https://github.com/RasaPanel/panel"><img alt="Source code" src="https://img.shields.io/badge/source-RasaPanel%2Fpanel-315fa8?style=flat-square"></a>
+  <a href="https://github.com/RasaPanel/panel"><img alt="Source code" src="https://img.shields.io/badge/source-Hirkan-315fa8?style=flat-square"></a>
 </p>
 
-Rasa Panel brings user administration, distributed nodes, subscriptions and usage monitoring into one multilingual interface. The Python backend exposes a REST API; the React interface supports desktop and mobile, right-to-left languages, and customizable light and dark themes.
+Hirkan brings user administration, distributed nodes, subscriptions and usage monitoring into one multilingual interface. The Python backend exposes a REST API; the React interface supports desktop and mobile, right-to-left languages, and customizable light and dark themes.
 
 This is a modified distribution of PasarGuard 5.4.1. The original license and contributor attribution are preserved in [LICENSE](LICENSE) and [NOTICE](NOTICE).
 
@@ -33,7 +33,7 @@ This is a modified distribution of PasarGuard 5.4.1. The original license and co
 | Integrations | Panel Telegram integration, webhooks and notification settings |
 | Interface | Persian/RTL, English and additional bundled translations; light/dark themes, density and color settings |
 
-The Rasa update adds a distinct login card, branded sidebar, directional active navigation, quieter card surfaces and page headings while keeping the existing routes and administration tools. Docker builds the interface directly from source. Page-help links open this guide when a separate documentation site is unavailable.
+Hirkan uses grouped navigation, circular resource gauges, a unified page toolbar, structured tables and consistent dialog surfaces. The original default palette and existing management capabilities are preserved.
 
 <a id="installation"></a>
 ## Installation
@@ -58,7 +58,7 @@ UVICORN_SSL_KEYFILE=/var/lib/rasa-panel/certs/key.pem
 
 ```bash
 docker compose up -d --build
-docker compose exec rasa-panel python rasa-cli.py generate-temp-key
+docker compose exec rasa-panel python hirkan-cli.py generate-temp-key
 ```
 
 Open `https://YOUR_DOMAIN:8443/dashboard/`. Choose owner setup and use the temporary key to create the first owner. The key is a setup credential; keep it private.
@@ -94,7 +94,7 @@ Admins can be given scoped access to resources through roles. Grant each operato
 <a id="nodes"></a>
 ## Nodes and cores
 
-Remote nodes are installed separately. Register their connection details in the panel and verify status and logs before assigning traffic. Original node/core package identifiers remain for compatibility; this repository does not contain a separate Rasa node distribution. Protocol availability depends on the selected core, node version and inbound configuration.
+Remote nodes are installed separately. Register their connection details in the panel and verify status and logs before assigning traffic. Original node/core package identifiers remain for compatibility; this repository does not contain a separate Hirkan node distribution. Protocol availability depends on the selected core, node version and inbound configuration.
 
 <a id="subscriptions"></a>
 ## Hosts and subscriptions
@@ -103,7 +103,7 @@ Configure the public domain, port, transport and TLS/REALITY details in host and
 
 Client templates control subscription output. Device limits and subscription settings are managed from the existing settings pages. A domain still resolves to an address; using a domain does not hide the origin IP by itself.
 
-The default subscription web page, **Classic**, preserves the original upstream appearance independently of the Rasa administration theme. For an existing installation set `SUBSCRIPTION_PAGE_TEMPLATE="subscription/classic.html"` in `.env`. If `CUSTOM_TEMPLATES_DIRECTORY` is configured, a same-named custom file takes precedence; preserve your custom template before replacing it. This setting controls the subscription web page, not client configuration formats or user links.
+The default subscription web page, **Classic**, preserves the original upstream appearance independently of the Hirkan administration theme. For an existing installation set `SUBSCRIPTION_PAGE_TEMPLATE="subscription/classic.html"` in `.env`. If `CUSTOM_TEMPLATES_DIRECTORY` is configured, a same-named custom file takes precedence; preserve your custom template before replacing it. This setting controls the subscription web page, not client configuration formats or user links.
 
 <a id="updating"></a>
 ## Updating
@@ -116,7 +116,7 @@ docker compose up -d --build
 docker compose logs --tail=100 rasa-panel
 ```
 
-Use this Rasa repository for updates. Upstream installation scripts deploy upstream packages and do not update this branded distribution. Database migrations may prevent a simple image rollback; restore the matching database backup when rolling back a migration.
+Use this repository for updates. Upstream installation scripts deploy upstream packages and do not update this branded distribution. Database migrations may prevent a simple image rollback; restore the matching database backup when rolling back a migration.
 
 <a id="backups"></a>
 ## Backups and restore
@@ -164,13 +164,12 @@ uv run python -m alembic upgrade head
 uv run python main.py
 ```
 
-Set your development environment/database before running migrations. The backend is in `app/`, interface and static integration in `interface/`, CLI in `cli/`, and tests in `tests/`. API schema export is in `scripts/export_openapi.py`. The Rasa GHCR workflow is `.github/workflows/rasa-release.yml`; registry publishing requires an authorized GitHub workflow run. Repository Telegram notifications remain inactive until a dedicated bot and destination are configured.
+Set your development environment/database before running migrations. The backend is in `app/`, interface and static integration in `interface/`, CLI in `cli/`, and tests in `tests/`. API schema export is in `scripts/export_openapi.py`. The GHCR workflow is `.github/workflows/rasa-release.yml`; registry publishing requires an authorized GitHub workflow run. Repository Telegram notifications remain inactive until a dedicated bot and destination are configured.
 
 ## Support and license
 
 - Support: [@dev_vexel](https://t.me/dev_vexel)
-- Source and issues: [RasaPanel/panel](https://github.com/RasaPanel/panel)
-- Organization: [RasaPanel](https://github.com/RasaPanel)
-- Current documentation: this guide and [فارسی](README-fa.md)
+- Source and issues: [Hirkan source](https://github.com/RasaPanel/panel)
+- Organization: [GitHub organization](https://github.com/RasaPanel)
 
 Distributed under AGPL-3.0. Network users must be offered the corresponding source of a modified deployment as required by the license. Original reference documents remain in `docs/upstream/`; their installation commands and service links refer to the upstream project.

@@ -44,11 +44,11 @@ export default function PageHeader({ title, description, buttonText, onButtonCli
   return (
     <div
       dir={dir}
-      className={cn('rasa-page-header bg-background/80 sticky top-0 z-20 mx-auto flex w-full flex-row items-start justify-between gap-4 overflow-hidden px-4 py-4 backdrop-blur-md md:pt-6', className)}
+      className={cn('hirkan-page-header bg-background/80 sticky top-0 z-20 mx-auto flex w-full flex-col items-stretch justify-between gap-3 px-4 py-4 backdrop-blur-md sm:flex-row sm:items-center md:px-6', className)}
     >
       <Snowfall className="snowfall--header" />
       <div className="relative z-10 flex min-w-0 flex-1 items-center gap-3">
-        <span aria-hidden="true" className="rasa-heading-icon hidden shrink-0 items-center justify-center sm:flex">
+        <span aria-hidden="true" className="hirkan-heading-icon flex shrink-0 items-center justify-center">
           <PageIcon className="h-5 w-5" />
         </span>
         <div className="flex min-w-0 flex-1 flex-col gap-y-1">
@@ -77,7 +77,7 @@ export default function PageHeader({ title, description, buttonText, onButtonCli
         </div>
       </div>
       {buttonText && onButtonClick && (
-        <div className="relative z-10 shrink-0">
+        <div className="hirkan-header-actions relative z-10 shrink-0">
           {buttonTooltip ? (
             <TooltipProvider>
               <Tooltip>

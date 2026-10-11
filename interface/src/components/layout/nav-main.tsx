@@ -18,7 +18,9 @@ import { useTranslation } from 'react-i18next'
 
 export function NavMain({
   items,
+  label = 'platform',
 }: {
+  label?: string
   items: {
     title: string
     url: string
@@ -41,15 +43,17 @@ export function NavMain({
     setOpenMobile(false)
   }
 
+  if (items.length === 0) return null
+
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>{t('platform')}</SidebarGroupLabel>
+      <SidebarGroupLabel>{t(label)}</SidebarGroupLabel>
       <SidebarMenu>
         {items.map(item => (
           <Collapsible key={item.title} defaultOpen={item.isActive || location.pathname.startsWith(item.url)}>
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
-                <NavLink to={item.url} onClick={handleNavigation}>
+                <NavLink to={item.url} end={!item.items?.length} onClick={handleNavigation}>
                   {({ isActive }) => (
                     <SidebarMenuButton tooltip={t(item.title)} isActive={isActive}>
                       <item.icon />

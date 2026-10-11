@@ -421,7 +421,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <div className="bg-sidebar h-[env(safe-area-inset-top)]" />
         <div className="border-sidebar-border bg-sidebar/80 supports-[backdrop-filter]:bg-sidebar/65 flex items-center justify-between border-b px-4 py-3 backdrop-blur-md">
           <Link to="/" className="flex items-center gap-2">
-            <img src={resolvedTheme === 'dark' ? '/statics/favicon/logo.png' : '/statics/favicon/logo-dark.png'} alt="Rasa Panel Logo" className="h-8 w-8 object-contain" />
+            <img src={resolvedTheme === 'dark' ? '/statics/favicon/logo.png' : '/statics/favicon/logo-dark.png'} alt="Hirkan Logo" className="h-8 w-8 object-contain" />
             <span dir={isRTL ? 'rtl' : 'ltr'} className="text-sm font-bold">
               {t('pasarguard')}
             </span>
@@ -429,10 +429,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarTriggerWithBadge showUpdateBadge={canReadSystem && hasUpdate} />
         </div>
       </div>
-      <Sidebar variant="sidebar" collapsible="icon" {...props} className="rasa-sidebar border-sidebar-border p-0" side={isRTL ? 'right' : 'left'}>
+      <Sidebar variant="sidebar" collapsible="icon" {...props} className="hirkan-sidebar border-sidebar-border p-0" side={isRTL ? 'right' : 'left'}>
         <Snowfall className="snowfall--sidebar" />
         <SidebarRail />
-        <SidebarHeader className="rasa-sidebar-header">
+        <SidebarHeader className="hirkan-sidebar-header">
           <SidebarMenu>
             <SidebarMenuItem>
               {state === 'collapsed' && !isMobile ? (
@@ -452,7 +452,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     className={cn('relative w-full justify-center !gap-0 transition-opacity duration-200 ease-in-out', showCollapseButton ? 'pointer-events-none opacity-0' : 'opacity-100')}
                   >
                     <a href={REPO_URL} target="_blank">
-                      <img src={resolvedTheme === 'dark' ? '/statics/favicon/logo.png' : '/statics/favicon/logo-dark.png'} alt="Rasa Panel Logo" className="h-6 w-6 flex-shrink-0 object-contain" />
+                      <img src={resolvedTheme === 'dark' ? '/statics/favicon/logo.png' : '/statics/favicon/logo-dark.png'} alt="Hirkan Logo" className="h-6 w-6 flex-shrink-0 object-contain" />
                       {canReadSystem && hasUpdate && (
                         <TooltipProvider>
                           <VersionBadge currentVersion={normalizedVersion} />
@@ -487,7 +487,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <div className={cn('relative', isRTL ? 'pl-10' : 'pr-10')}>
                   <SidebarMenuButton size="lg" className={cn('w-full !gap-2')}>
                     <a href={REPO_URL} target="_blank" className="flex min-w-0 flex-1 items-center gap-2">
-                      <img src={resolvedTheme === 'dark' ? '/statics/favicon/logo.png' : '/statics/favicon/logo-dark.png'} alt="Rasa Panel Logo" className="h-8 w-8 flex-shrink-0 object-contain" />
+                      <img src={resolvedTheme === 'dark' ? '/statics/favicon/logo.png' : '/statics/favicon/logo-dark.png'} alt="Hirkan Logo" className="h-8 w-8 flex-shrink-0 object-contain" />
                       <div className="flex min-w-0 flex-1 flex-col items-start overflow-hidden">
                         <span className={cn(isRTL ? 'text-right' : 'text-left', 'truncate text-sm leading-tight font-semibold')}>{t('pasarguard')}</span>
                         {canReadSystem && (
@@ -532,7 +532,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               ) : (
                 <SidebarMenuButton size="lg" asChild className="!gap-2">
                   <a href={REPO_URL} target="_blank">
-                    <img src={resolvedTheme === 'dark' ? '/statics/favicon/logo.png' : '/statics/favicon/logo-dark.png'} alt="Rasa Panel Logo" className="h-8 w-8 flex-shrink-0 object-contain" />
+                    <img src={resolvedTheme === 'dark' ? '/statics/favicon/logo.png' : '/statics/favicon/logo-dark.png'} alt="Hirkan Logo" className="h-8 w-8 flex-shrink-0 object-contain" />
                     <div className="flex min-w-0 flex-col overflow-hidden">
                       <span className={cn(isRTL ? 'text-right' : 'text-left', 'truncate text-sm leading-tight font-semibold')}>{t('pasarguard')}</span>
                       {canReadSystem && (
@@ -553,7 +553,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SidebarMenu>
         </SidebarHeader>
         <SidebarContent>
-          <NavMain items={data.navMain} />
+          <NavMain label="hirkan.navigation.operations" items={data.navMain.filter(item => ['dashboard', 'users', 'statistics', 'groups', 'bulk.title'].includes(item.title))} />
+          <NavMain label="hirkan.navigation.infrastructure" items={data.navMain.filter(item => ['hosts', 'nodes.title', 'templates.title'].includes(item.title))} />
+          <NavMain label="hirkan.navigation.administration" items={data.navMain.filter(item => !['dashboard', 'users', 'statistics', 'groups', 'bulk.title', 'hosts', 'nodes.title', 'templates.title'].includes(item.title))} />
           {isOwner(admin) && <NavSecondary items={data.community} label={t('community')} />}
           <NavSecondary items={data.navSecondary} className="mt-auto" />
           <GoalProgress />

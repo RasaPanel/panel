@@ -45,10 +45,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY cli_wrapper.sh /usr/bin/rasa-cli
-RUN chmod +x /usr/bin/rasa-cli
+RUN chmod +x /usr/bin/rasa-cli && ln -s /usr/bin/rasa-cli /usr/bin/hirkan-cli
 
 COPY tui_wrapper.sh /usr/bin/rasa-tui
-RUN chmod +x /usr/bin/rasa-tui
+RUN chmod +x /usr/bin/rasa-tui && ln -s /usr/bin/rasa-tui /usr/bin/hirkan-tui
 
 # Copy healthcheck script
 COPY healthcheck.sh /code/healthcheck.sh

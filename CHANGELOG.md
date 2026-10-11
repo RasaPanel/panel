@@ -1,4 +1,13 @@
-# Rasa Panel changes
+# Hirkan changes
+
+## 2026-10-11 — Hirkan identity and shared workspace
+
+- Replaced display branding and all packaged logo/favicon assets with Hirkan and the supplied H monogram.
+- Restored the exact original default color palette; custom theme choices remain available.
+- Grouped existing navigation into operations, infrastructure and administration with unchanged permission gates.
+- Unified page action bars, tables, tabs and dialogs, and added a desktop settings navigation column with horizontal mobile navigation.
+- Removed the redundant documentation footer from the guides.
+- Added Hirkan CLI aliases; existing Compose service names, volume paths and old CLI entrypoints remain compatible with installed deployments.
 
 ## 2026-10-11 — Hybrid dashboard and Classic subscription page
 
