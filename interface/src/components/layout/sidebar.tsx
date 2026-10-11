@@ -394,7 +394,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     community: [
       {
         title: 'documentation',
-        url: DOCUMENTATION,
+        url: DOCUMENTATION === '#' && REPO_URL !== '#' ? `${REPO_URL}/blob/main/${isRTL ? 'README-fa.md' : 'README.md'}` : DOCUMENTATION,
         icon: BookOpen,
         target: '_blank',
       },
@@ -434,7 +434,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <Sidebar variant="sidebar" collapsible="icon" {...props} className="border-sidebar-border p-0" side={isRTL ? 'right' : 'left'}>
         <Snowfall className="snowfall--sidebar" />
         <SidebarRail />
-        <SidebarHeader>
+        <SidebarHeader className="rasa-sidebar-header">
           <SidebarMenu>
             <SidebarMenuItem>
               {state === 'collapsed' && !isMobile ? (

@@ -1,5 +1,16 @@
 # Validation — 2026-10-11
 
+## Rasa interface/documentation update
+
+The update changes presentation, guide links and Docker build packaging; no
+database schema, API route or authorization logic is changed. Production build
+and documentation link checks are run for this update. Docker now builds the
+frontend in a separate Bun stage; Docker Engine is unavailable locally, so the
+new image build and live deployment are not certified here. Login, mobile and
+authenticated dashboard appearance have not been browser-validated locally.
+
+## Initial branded distribution
+
 Reference: PasarGuard/panel b56ffe369f542152c52c69733205baeaf3f6e4cd, version 5.4.1.
 
 - Frozen Bun frontend dependencies installed successfully.

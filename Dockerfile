@@ -1,5 +1,12 @@
 ARG PYTHON_VERSION=3.14
 
+FROM oven/bun:1 AS interface-builder
+WORKDIR /interface
+COPY interface/package.json interface/bun.lock ./
+RUN bun install --frozen-lockfile
+COPY interface/ ./
+RUN rm -rf build && VITE_BASE_API=/ bun run build && cp build/index.html build/404.html
+
 FROM ghcr.io/astral-sh/uv:python$PYTHON_VERSION-bookworm-slim AS builder
 ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy
 
@@ -24,6 +31,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 FROM python:$PYTHON_VERSION-slim-bookworm
 
 COPY --from=builder /build /code
+COPY --from=interface-builder /interface/build /code/interface/build
 WORKDIR /code
 
 ENV PATH="/code/.venv/bin:$PATH"

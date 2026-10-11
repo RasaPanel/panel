@@ -460,3 +460,66 @@
   .dark img[alt="Rasa Panel Logo"] { filter: invert(1); }
   img[alt="Rasa Panel Logo"] { object-fit: contain; }
 }
+
+@layer components {
+  .rasa-login {
+    background-image: radial-gradient(ellipse at 15% 15%, hsl(var(--primary) / 0.12), transparent 48%),
+      radial-gradient(ellipse at 85% 80%, hsl(var(--primary) / 0.07), transparent 45%);
+  }
+
+  .rasa-login-panel {
+    border: 1px solid hsl(var(--border) / 0.65);
+    border-top: 3px solid hsl(var(--primary));
+    border-radius: calc(var(--radius) + 0.75rem);
+    background: hsl(var(--card) / 0.94);
+    box-shadow: 0 20px 60px -30px hsl(var(--foreground) / 0.22);
+  }
+
+  .rasa-login-panel img {
+    margin-bottom: 0.75rem;
+  }
+
+  .rasa-sidebar-header {
+    margin: 0.75rem 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid hsl(var(--sidebar-border));
+    border-radius: calc(var(--radius) + 0.25rem);
+    background: hsl(var(--card) / 0.45);
+  }
+
+  [data-sidebar='menu-button'][data-active='true'],
+  [data-sidebar='menu-sub-button'][data-active='true'] {
+    background: hsl(var(--primary) / 0.12);
+    color: hsl(var(--foreground));
+    box-shadow: inset 3px 0 0 hsl(var(--primary));
+    font-weight: 600;
+  }
+
+  [dir='rtl'] [data-sidebar='menu-button'][data-active='true'],
+  [dir='rtl'] [data-sidebar='menu-sub-button'][data-active='true'] {
+    box-shadow: inset -3px 0 0 hsl(var(--primary));
+  }
+
+  .rasa-page-header {
+    border-bottom: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .rasa-page-header h1 {
+    padding-inline-start: 0.7rem;
+    border-inline-start: 3px solid hsl(var(--primary));
+  }
+
+  .rasa-card {
+    border-radius: calc(var(--radius) + 0.35rem);
+    background-image: linear-gradient(135deg, hsl(var(--primary) / 0.025), transparent 55%);
+  }
+
+  .rasa-workspace {
+    background-image: radial-gradient(ellipse at top, hsl(var(--primary) / 0.035), transparent 55%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-sidebar='sidebar'] { transition: none; }
+  .rasa-workspace { scroll-behavior: auto; }
+}

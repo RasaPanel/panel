@@ -19,7 +19,6 @@ xray-core
 tests
 venv*
 .venv*
-LICENSE
 install_service.sh
 PasarGuard.code-workspace
 scripts
@@ -45,12 +44,11 @@ test.db
 .AGENT
 graphify-out
 
-# Dashboard: the frontend is prebuilt in CI (build.yml / build-dev.yml) and the
-# compiled output is copied into the context as dashboard/build/. At runtime only
-# the Python integration module and the compiled assets are used (build() never
-# runs because dashboard/build/ already exists), so exclude all source/tooling.
-# Excluding+re-including direct children avoids Docker's "can't re-include a file
-# under an excluded parent directory" limitation.
-interface/*
-!interface/__init__.py
-!interface/build
+# Build the interface in its own Docker stage; never copy local generated files.
+interface/build
+data
+*.db
+*.db-wal
+*.db-shm
+*.sqlite3
+RasaPanel.code-workspace

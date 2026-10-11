@@ -371,14 +371,14 @@ export const Login: FC = () => {
   }, [])
 
   return (
-    <div className="flex min-h-screen w-full flex-col justify-between p-6">
+    <div className="rasa-login flex min-h-screen w-full flex-col justify-between p-4 sm:p-6">
       <div className="w-full">
         <div className="flex w-full items-center justify-between">
           <Language />
           <ThemeToggle />
         </div>
         <div className="flex w-full items-center justify-center">
-          <div className="mt-6 w-full max-w-[340px]">
+          <div className="rasa-login-panel my-6 w-full max-w-[420px] p-5 sm:p-8">
             <div className="flex flex-col items-center gap-2">
               <img src={resolvedTheme === 'dark' ? '/statics/favicon/logo.png' : '/statics/favicon/logo-dark.png'} alt="Rasa Panel Logo" className="h-20 w-20 object-contain" />
               <span className="text-2xl font-semibold">{view === 'login' ? t('login.loginYourAccount') : t('setup.ownerAccess', { defaultValue: 'Owner access' })}</span>

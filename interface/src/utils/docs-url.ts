@@ -1,19 +1,26 @@
-import { DOCUMENTATION } from '@/constants/Project'
+import { DOCUMENTATION, REPO_URL } from '@/constants/Project'
 import i18n from '@/locales/i18n'
 
 /**
  * Generates a documentation URL for a given page path
- * Format: docs.pasarguard.org/{locale}/panel/{page}
- * Special case: /nodes routes use docs.pasarguard.org/{locale}/node/
+ * Uses the Rasa repository guide until a dedicated documentation site is set.
  *
  * @param pagePath - The page path (e.g., '/settings', '/users', '/nodes/cores')
  * @returns The full documentation URL
  */
 export function getDocsUrl(pagePath: string): string {
-  if (DOCUMENTATION === '#') return '#'
   const locale = i18n.language || 'en'
   // Normalize locale (e.g., 'en-US' -> 'en')
   const normalizedLocale = locale.split('-')[0]
+  if (DOCUMENTATION === '#') {
+    if (REPO_URL === '#') return '#'
+    const file = normalizedLocale === 'fa' ? 'README-fa.md' : 'README.md'
+    const section = pagePath.startsWith('/nodes') ? 'nodes'
+      : pagePath.startsWith('/settings') ? 'configuration'
+      : pagePath.startsWith('/users') || pagePath.startsWith('/bulk') ? 'users'
+      : pagePath.startsWith('/hosts') ? 'subscriptions' : 'features'
+    return `${REPO_URL}/blob/main/${file}#${section}`
+  }
 
   // Special case: node documentation uses /node/ instead of /panel/nodes
   if (pagePath === '/nodes') {
