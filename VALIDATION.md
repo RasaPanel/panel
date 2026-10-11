@@ -1,5 +1,12 @@
 # Validation — 2026-10-11
 
+## Rasa composition accents
+
+- Clean frontend build passed; strict TypeScript remains at the 26 recorded baseline diagnostics.
+- Local Chromium checks with mocked API data: Persian dark desktop/mobile and English light desktop dashboard, plus read-only access.
+- No runtime page errors or horizontal viewport overflow in the checked dashboard layouts.
+- API sources, backend, database and permission checks unchanged; no production deployment performed.
+
 ## Rasa theme refinement
 
 - Restored dashboard and navigation components from the upstream layout; retained Rasa branding and API configuration.

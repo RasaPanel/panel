@@ -1,5 +1,12 @@
 # Rasa Panel changes
 
+## 2026-10-11 — Rasa composition accents
+
+- Kept the original statistics content and controls while arranging CPU/RAM/disk in one row on wide screens, traffic alongside uptime, and users below.
+- Added compact section icons to page headings on desktop without extra banner or marketing copy.
+- Refined the sidebar brand surface and table header, alternating-row and selection colors.
+- Kept mobile/tablet density, theme settings, API data and authorization behavior.
+
 ## 2026-10-11 — Rasa theme refinement
 
 - Restored the original dashboard statistics arrangement, navigation density, table spacing, page header and centered login layout.

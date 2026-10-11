@@ -507,3 +507,30 @@
     scroll-behavior: auto;
   }
 }
+
+/* Small composition accents; keep forms and content density unchanged. */
+.rasa-heading-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius);
+  color: hsl(var(--primary));
+  background: hsl(var(--primary) / 0.1);
+  border: 1px solid hsl(var(--primary) / 0.15);
+}
+.rasa-sidebar-header {
+  border-radius: var(--radius);
+  background: hsl(var(--primary) / 0.035);
+  padding: 0.5rem;
+}
+.rasa-table thead {
+  background: hsl(var(--primary) / 0.045);
+}
+.rasa-table tbody tr:nth-child(even) {
+  background: hsl(var(--muted) / 0.18);
+}
+.rasa-table tbody tr:hover {
+  background: hsl(var(--primary) / 0.065);
+}
+.rasa-table tbody tr[data-state='selected'] {
+  background: hsl(var(--primary) / 0.12);
+}

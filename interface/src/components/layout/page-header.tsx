@@ -4,7 +4,7 @@ import useDirDetection from '@/hooks/use-dir-detection'
 import { getDocsUrl } from '@/utils/docs-url'
 import Snowfall from '@/components/common/snowfall'
 import { cn } from '@/lib/utils'
-import { HelpCircle, LucideIcon, Plus } from 'lucide-react'
+import { HelpCircle, LucideIcon, Plus, LayoutDashboard, Users, Server, Settings, Activity, Layers, SlidersHorizontal } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router'
 
@@ -26,6 +26,20 @@ export default function PageHeader({ title, description, buttonText, onButtonCli
 
   // Generate tutorial URL if not provided
   const docsUrl = tutorialUrl || getDocsUrl(location.pathname)
+  const PageIcon =
+    location.pathname === '/'
+      ? LayoutDashboard
+      : location.pathname.startsWith('/users') || location.pathname.startsWith('/admins')
+        ? Users
+        : location.pathname.startsWith('/nodes')
+          ? Server
+          : location.pathname.startsWith('/statistics')
+            ? Activity
+            : location.pathname.startsWith('/settings')
+              ? Settings
+              : location.pathname.startsWith('/templates') || location.pathname.startsWith('/groups')
+                ? Layers
+                : SlidersHorizontal
 
   return (
     <div
@@ -33,29 +47,34 @@ export default function PageHeader({ title, description, buttonText, onButtonCli
       className={cn('rasa-page-header bg-background/80 sticky top-0 z-20 mx-auto flex w-full flex-row items-start justify-between gap-4 overflow-hidden px-4 py-4 backdrop-blur-md md:pt-6', className)}
     >
       <Snowfall className="snowfall--header" />
-      <div className="relative z-10 flex min-w-0 flex-1 flex-col gap-y-1">
-        <div className="flex min-w-0 items-center gap-2.5">
-          <h1 className="truncate text-2xl font-semibold tracking-tight">{t(title)}</h1>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <a
-                  href={docsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:border-primary/40 hover:bg-primary/5 hover:text-primary focus-visible:ring-ring inline-flex h-7 w-7 items-center justify-center rounded-md border-0 transition-colors hover:border-2 focus-visible:ring-2 focus-visible:outline-none"
-                  aria-label={t('tutorial', { defaultValue: 'View tutorial' })}
-                >
-                  <HelpCircle className="h-4 w-4" />
-                </a>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>{t('tutorial', { defaultValue: 'View tutorial' })}</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+      <div className="relative z-10 flex min-w-0 flex-1 items-center gap-3">
+        <span aria-hidden="true" className="rasa-heading-icon hidden shrink-0 items-center justify-center sm:flex">
+          <PageIcon className="h-5 w-5" />
+        </span>
+        <div className="flex min-w-0 flex-1 flex-col gap-y-1">
+          <div className="flex min-w-0 items-center gap-2.5">
+            <h1 className="truncate text-2xl font-semibold tracking-tight">{t(title)}</h1>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a
+                    href={docsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:border-primary/40 hover:bg-primary/5 hover:text-primary focus-visible:ring-ring inline-flex h-7 w-7 items-center justify-center rounded-md border-0 transition-colors hover:border-2 focus-visible:ring-2 focus-visible:outline-none"
+                    aria-label={t('tutorial', { defaultValue: 'View tutorial' })}
+                  >
+                    <HelpCircle className="h-4 w-4" />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{t('tutorial', { defaultValue: 'View tutorial' })}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
+          {description && <span className="text-muted-foreground text-sm leading-relaxed whitespace-normal">{t(description)}</span>}
         </div>
-        {description && <span className="text-muted-foreground text-sm leading-relaxed whitespace-normal">{t(description)}</span>}
       </div>
       {buttonText && onButtonClick && (
         <div className="relative z-10 shrink-0">

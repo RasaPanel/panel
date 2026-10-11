@@ -16,9 +16,9 @@ const DashboardStatistics = ({ resourceData, usersData }: { resourceData: System
   // Show skeleton loader while data is being fetched
   if (!resourceData && !usersData) {
     return (
-      <div className={cn('grid h-full w-full gap-3 sm:gap-4 lg:gap-6', 'grid-cols-1 sm:grid-cols-2', dir === 'rtl' && 'lg:grid-flow-col-reverse')}>
+      <div className={cn('grid h-full w-full gap-3 sm:gap-4 lg:gap-6', 'grid-cols-1 sm:grid-cols-2 xl:grid-cols-3', dir === 'rtl' && 'lg:grid-flow-col-reverse')}>
         {[...Array(6)].map((_, i) => (
-          <Card key={i} className={cn('h-full overflow-hidden border', (i === 4 || i === 5) && 'sm:col-span-2')}>
+          <Card key={i} className={cn('h-full overflow-hidden border', i === 3 && 'xl:col-span-2', i === 4 && 'sm:col-span-2 xl:col-span-1', i === 5 && 'sm:col-span-2 xl:col-span-3')}>
             <CardContent className="flex h-full flex-col justify-between p-4 sm:p-5 lg:p-6">
               <div className="mb-2 flex items-start justify-between sm:mb-3">
                 <div className="flex items-center gap-2 sm:gap-3">
@@ -115,7 +115,7 @@ const DashboardStatistics = ({ resourceData, usersData }: { resourceData: System
       className={cn(
         'grid h-full w-full gap-3 sm:gap-4 lg:gap-6',
         // Responsive grid: 1 column on mobile, 2 on tablet, 4 on desktop
-        'grid-cols-1 sm:grid-cols-2',
+        'grid-cols-1 sm:grid-cols-2 xl:grid-cols-3',
         dir === 'rtl' && 'lg:grid-flow-col-reverse',
       )}
     >
@@ -239,7 +239,7 @@ const DashboardStatistics = ({ resourceData, usersData }: { resourceData: System
       {usersData && (
         <>
           {/* Total Traffic with Incoming/Outgoing Details */}
-          <div className="animate-fade-in h-full w-full" style={{ animationDuration: '600ms', animationDelay: '350ms' }}>
+          <div className="animate-fade-in h-full w-full xl:col-span-2" style={{ animationDuration: '600ms', animationDelay: '350ms' }}>
             <Card dir={dir} className="group relative h-full w-full overflow-hidden rounded-lg border transition-all duration-300 hover:shadow-lg">
               <div
                 className={cn(
@@ -290,7 +290,7 @@ const DashboardStatistics = ({ resourceData, usersData }: { resourceData: System
       )}
 
       {/* Panel Uptime */}
-      <div className="animate-fade-in h-full w-full sm:col-span-2" style={{ animationDuration: '600ms', animationDelay: '450ms' }}>
+      <div className={cn('animate-fade-in h-full w-full sm:col-span-2', usersData ? 'xl:col-span-1' : 'xl:col-span-3')} style={{ animationDuration: '600ms', animationDelay: '450ms' }}>
         <Card dir={dir} className="group relative h-full w-full overflow-hidden rounded-lg border transition-all duration-300 hover:shadow-lg">
           <div
             className={cn(
@@ -321,7 +321,7 @@ const DashboardStatistics = ({ resourceData, usersData }: { resourceData: System
       {usersData && (
         <>
           {/* Users Overview */}
-          <div className={cn('animate-fade-in h-full w-full', 'sm:col-span-2')} style={{ animationDuration: '600ms', animationDelay: '550ms' }}>
+          <div className={cn('animate-fade-in h-full w-full', 'sm:col-span-2 xl:col-span-3')} style={{ animationDuration: '600ms', animationDelay: '550ms' }}>
             <Card dir={dir} className="group relative h-full w-full overflow-hidden rounded-lg border transition-all duration-300 hover:shadow-lg">
               <div
                 className={cn(
