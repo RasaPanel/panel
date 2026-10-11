@@ -145,7 +145,7 @@ class JwtSettings(EnvSettings):
 class TemplateSettings(EnvSettings):
     custom_templates_directory: str | None = Field(default=None, validation_alias="CUSTOM_TEMPLATES_DIRECTORY")
     subscription_page_template: str = Field(
-        default="subscription/index.html", validation_alias="SUBSCRIPTION_PAGE_TEMPLATE"
+        default="subscription/classic.html", validation_alias="SUBSCRIPTION_PAGE_TEMPLATE"
     )
     home_page_template: str = Field(default="home/index.html", validation_alias="HOME_PAGE_TEMPLATE")
 

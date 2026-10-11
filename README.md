@@ -103,6 +103,8 @@ Configure the public domain, port, transport and TLS/REALITY details in host and
 
 Client templates control subscription output. Device limits and subscription settings are managed from the existing settings pages. A domain still resolves to an address; using a domain does not hide the origin IP by itself.
 
+The default subscription web page, **Classic**, preserves the original upstream appearance independently of the Rasa administration theme. For an existing installation set `SUBSCRIPTION_PAGE_TEMPLATE="subscription/classic.html"` in `.env`. If `CUSTOM_TEMPLATES_DIRECTORY` is configured, a same-named custom file takes precedence; preserve your custom template before replacing it. This setting controls the subscription web page, not client configuration formats or user links.
+
 <a id="updating"></a>
 ## Updating
 

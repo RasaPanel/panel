@@ -5,6 +5,7 @@ services:
     restart: always
     env_file: .env
     environment:
+      SUBSCRIPTION_PAGE_TEMPLATE: "${SUBSCRIPTION_PAGE_TEMPLATE:-subscription/classic.html}"
       SQLALCHEMY_DATABASE_URL: "${SQLALCHEMY_DATABASE_URL:-sqlite+aiosqlite:////var/lib/rasa-panel/db.sqlite3}"
     network_mode: host
     volumes:

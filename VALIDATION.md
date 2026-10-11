@@ -1,5 +1,14 @@
 # Validation — 2026-10-11
 
+## Hybrid dashboard and Classic subscription
+
+- Frontend production build passed; strict TypeScript diagnostics remain at the 26-error baseline, with no new diagnostics.
+- Nine tests passed for Classic account-status rendering, default/custom template selection and the existing subscription hot path.
+- Classic preserves the upstream CSS, body and scripts; UTF-8 and viewport metadata are added for reliable character rendering and mobile layout.
+- Chromium with fixture data: Persian dark and English light dashboard, mobile layout, existing create-user dialog and permission-restricted actions. No page errors or horizontal overflow in those checks. The populated user table was also checked with fixture data.
+- Classic page browser checks: copy confirmation, QR popup, light/dark toggle and mobile viewport all passed.
+- Backend protocols, credentials, user links and database schema were not modified. A live production deployment and the full backend suite were not run for this update.
+
 ## Rasa composition accents
 
 - Clean frontend build passed; strict TypeScript remains at the 26 recorded baseline diagnostics.

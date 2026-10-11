@@ -1,5 +1,12 @@
 # Rasa Panel changes
 
+## 2026-10-11 — Hybrid dashboard and Classic subscription page
+
+- Added circular CPU/RAM/disk gauges with used/total values and loading states, inspired by the 3X-UI overview while retaining the existing administration workflows.
+- Added permission-aware quick links to users and nodes and the existing create-user dialog.
+- Kept original traffic, user status, worker health and per-admin charts.
+- Added the Classic subscription template, preserving the upstream subscription appearance with UTF-8 and mobile viewport metadata, and made it the default in configuration and Compose. Explicit custom template choices remain supported.
+
 ## 2026-10-11 — Rasa composition accents
 
 - Kept the original statistics content and controls while arranging CPU/RAM/disk in one row on wide screens, traffic alongside uptime, and users below.

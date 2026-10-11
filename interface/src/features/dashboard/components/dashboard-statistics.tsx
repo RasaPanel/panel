@@ -6,7 +6,7 @@ import { formatBytes } from '@/utils/formatByte'
 import { formatDuration } from '@/utils/formatDuration'
 import { Clock3, Cpu, Database, Download, HardDrive, MemoryStick, Upload, UserCheck, Users, Wifi } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { CircularProgress } from '@/components/ui/circular-progress'
+import ResourceGaugeCard from './resource-gauge-card'
 import { Card, CardContent } from '@/components/ui/card'
 
 const DashboardStatistics = ({ resourceData, usersData }: { resourceData: SystemResourceStats | undefined; usersData: SystemUsersStats | undefined }) => {
@@ -119,122 +119,15 @@ const DashboardStatistics = ({ resourceData, usersData }: { resourceData: System
         dir === 'rtl' && 'lg:grid-flow-col-reverse',
       )}
     >
-      {/* CPU Usage */}
-      <div className="animate-fade-in h-full w-full" style={{ animationDuration: '600ms', animationDelay: '50ms' }}>
-        <Card dir={dir} className="group relative h-full w-full overflow-hidden rounded-lg border transition-all duration-300 hover:shadow-lg">
-          <div
-            className={cn(
-              'from-primary/10 absolute inset-0 bg-gradient-to-r to-transparent opacity-0 transition-opacity duration-500',
-              'dark:from-primary/5 dark:to-transparent',
-              'group-hover:opacity-100',
-            )}
-          />
-          <CardContent className="relative z-10 flex h-full flex-col justify-between p-4 sm:p-5 lg:p-6">
-            <div className="mb-2 flex items-start justify-between sm:mb-3">
-              <div className="flex items-center gap-2 sm:gap-3">
-                <div className="bg-primary/10 rounded-lg p-1.5 sm:p-2">
-                  <Cpu className="text-primary h-4 w-4 sm:h-5 sm:w-5" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-muted-foreground truncate text-xs font-medium sm:text-sm">{t('statistics.cpuUsage')}</p>
-                </div>
-              </div>
-              <CircularProgress value={cpu.usage} size={38} strokeWidth={4} showValue={false} className="shrink-0 opacity-90" />
-            </div>
-
-            <div className="flex items-end justify-between gap-2">
-              <div className="flex min-w-0 flex-1 items-center gap-1 sm:gap-2">
-                <span dir="ltr" className="truncate text-xl font-bold transition-all duration-300 sm:text-2xl lg:text-3xl">
-                  {cpu.usage}%
-                </span>
-              </div>
-
-              {cpu.cores > 0 && (
-                <div className="bg-muted/50 text-muted-foreground flex shrink-0 items-center gap-1 rounded-md px-1.5 py-1 text-xs sm:px-2 sm:text-sm">
-                  <Cpu className="text-primary h-3 w-3" />
-                  <span className="font-medium whitespace-nowrap">
-                    {cpu.cores} {t('statistics.cores')}
-                  </span>
-                </div>
-              )}
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Memory Usage */}
-      <div className="animate-fade-in h-full w-full" style={{ animationDuration: '600ms', animationDelay: '150ms' }}>
-        <Card dir={dir} className="group relative h-full w-full overflow-hidden rounded-lg border transition-all duration-300 hover:shadow-lg">
-          <div
-            className={cn(
-              'from-primary/10 absolute inset-0 bg-gradient-to-r to-transparent opacity-0 transition-opacity duration-500',
-              'dark:from-primary/5 dark:to-transparent',
-              'group-hover:opacity-100',
-            )}
-          />
-          <CardContent className="relative z-10 flex h-full flex-col justify-between p-4 sm:p-5 lg:p-6">
-            <div className="mb-2 flex items-start justify-between sm:mb-3">
-              <div className="flex items-center gap-2 sm:gap-3">
-                <div className="bg-primary/10 rounded-lg p-1.5 sm:p-2">
-                  <MemoryStick className="text-primary h-4 w-4 sm:h-5 sm:w-5" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-muted-foreground truncate text-xs font-medium sm:text-sm">{t('statistics.ramUsage')}</p>
-                </div>
-              </div>
-              <CircularProgress value={memoryPercent} size={38} strokeWidth={4} showValue={false} className="shrink-0 opacity-90" />
-            </div>
-
-            <div className="flex items-end justify-between gap-2">
-              <span dir="ltr" className="truncate text-lg font-bold transition-all duration-300 sm:text-xl lg:text-2xl">
-                <span className="whitespace-nowrap">
-                  {formatBytes(memory.used, 1, false, false, 'GB')}/{formatBytes(memory.total, 1, true, false, 'GB')}
-                </span>
-              </span>
-              <span dir="ltr" className="bg-muted/60 text-muted-foreground rounded-md px-1.5 py-1 text-xs font-medium whitespace-nowrap sm:px-2">
-                {memoryPercent.toFixed(1)}%
-              </span>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Disk Usage */}
-      <div className="animate-fade-in h-full w-full" style={{ animationDuration: '600ms', animationDelay: '250ms' }}>
-        <Card dir={dir} className="group relative h-full w-full overflow-hidden rounded-lg border transition-all duration-300 hover:shadow-lg">
-          <div
-            className={cn(
-              'from-primary/10 absolute inset-0 bg-gradient-to-r to-transparent opacity-0 transition-opacity duration-500',
-              'dark:from-primary/5 dark:to-transparent',
-              'group-hover:opacity-100',
-            )}
-          />
-          <CardContent className="relative z-10 flex h-full flex-col justify-between p-4 sm:p-5 lg:p-6">
-            <div className="mb-2 flex items-start justify-between sm:mb-3">
-              <div className="flex items-center gap-2 sm:gap-3">
-                <div className="bg-primary/10 rounded-lg p-1.5 sm:p-2">
-                  <HardDrive className="text-primary h-4 w-4 sm:h-5 sm:w-5" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-muted-foreground truncate text-xs font-medium sm:text-sm">{t('statistics.diskUsage')}</p>
-                </div>
-              </div>
-              <CircularProgress value={diskPercent} size={38} strokeWidth={4} showValue={false} className="shrink-0 opacity-90" />
-            </div>
-
-            <div className="flex items-end justify-between gap-2">
-              <span dir="ltr" className="truncate text-lg font-bold transition-all duration-300 sm:text-xl lg:text-2xl">
-                <span className="whitespace-nowrap">
-                  {formatBytes(disk.used, 1, false, false, 'GB')}/{formatBytes(disk.total, 1, true, false, 'GB')}
-                </span>
-              </span>
-              <span dir="ltr" className="bg-muted/60 text-muted-foreground rounded-md px-1.5 py-1 text-xs font-medium whitespace-nowrap sm:px-2">
-                {diskPercent.toFixed(1)}%
-              </span>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+      <ResourceGaugeCard label={t('statistics.cpuUsage')} icon={Cpu} value={cpu.usage} detail={`${cpu.cores} ${t('statistics.cores')}`} loading={!resourceData} />
+      <ResourceGaugeCard
+        label={t('statistics.ramUsage')}
+        icon={MemoryStick}
+        value={memoryPercent}
+        detail={`${formatBytes(memory.used, 1)} / ${formatBytes(memory.total, 1)}`}
+        loading={!resourceData}
+      />
+      <ResourceGaugeCard label={t('statistics.diskUsage')} icon={HardDrive} value={diskPercent} detail={`${formatBytes(disk.used, 1)} / ${formatBytes(disk.total, 1)}`} loading={!resourceData} />
 
       {usersData && (
         <>

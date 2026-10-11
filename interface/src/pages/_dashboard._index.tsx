@@ -9,7 +9,9 @@ import { useAdmin } from '@/hooks/use-admin'
 import { useClipboard } from '@/hooks/use-clipboard'
 import type { AdminDetails, UserResponse } from '@/service/api'
 import { useGetSystemResourceStats, useGetSystemUsersStats } from '@/service/api'
-import { Bookmark } from 'lucide-react'
+import { Bookmark, Plus, Users, Server } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Link } from 'react-router'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -107,6 +109,33 @@ const Dashboard = () => {
 
       <div className="w-full px-3 pt-2 sm:px-4">
         <div className="flex flex-col gap-4 sm:gap-6">
+          <div className="rasa-overview-toolbar flex flex-wrap items-center justify-between gap-3">
+            <h2 className="text-sm font-semibold">{t('statistics.system')}</h2>
+            <div className="flex flex-wrap items-center gap-2">
+              {hasPermission(currentAdmin, 'users', 'read') && (
+                <Button asChild variant="outline" size="sm">
+                  <Link to="/users">
+                    <Users className="h-4 w-4" />
+                    {t('users')}
+                  </Link>
+                </Button>
+              )}
+              {hasPermission(currentAdmin, 'nodes', 'read') && (
+                <Button asChild variant="outline" size="sm">
+                  <Link to="/nodes">
+                    <Server className="h-4 w-4" />
+                    {t('nodes.title')}
+                  </Link>
+                </Button>
+              )}
+              {canCreateUsers && (
+                <Button onClick={handleCreateUser} size="sm">
+                  <Plus className="h-4 w-4" />
+                  {t('createUser')}
+                </Button>
+              )}
+            </div>
+          </div>
           <DashboardStatistics resourceData={systemResourceStatsData} usersData={systemUsersStatsData} />
           {canReadNodeStats && <WorkersHealthCard />}
           <Separator className="my-4" />

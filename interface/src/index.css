@@ -534,3 +534,20 @@
 .rasa-table tbody tr[data-state='selected'] {
   background: hsl(var(--primary) / 0.12);
 }
+
+.rasa-resource-gauge {
+  border-top: 2px solid hsl(var(--primary) / 0.5);
+}
+.rasa-gauge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius);
+  color: hsl(var(--primary));
+  background: hsl(var(--primary) / 0.1);
+}
+.rasa-overview-toolbar {
+  padding-block: 0.5rem;
+}
