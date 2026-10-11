@@ -1,0 +1,11 @@
+services:
+  rasa-panel:
+    build: .
+    image: rasa-panel:local
+    restart: always
+    env_file: .env
+    environment:
+      SQLALCHEMY_DATABASE_URL: "${SQLALCHEMY_DATABASE_URL:-sqlite+aiosqlite:////var/lib/rasa-panel/db.sqlite3}"
+    network_mode: host
+    volumes:
+      - ./data:/var/lib/rasa-panel
